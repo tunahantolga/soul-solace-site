@@ -14,7 +14,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="text-2xl font-bold text-primary">
-            Dr. Ayşe Kaya
+            Dr. İbrahim Sarı
           </Link>
           
           <nav className="hidden md:flex items-center space-x-8">
@@ -29,18 +29,6 @@ const Header = () => {
               className={`hover:text-primary transition-colors ${isActive('/hakkimda') ? 'text-primary font-medium' : 'text-text-secondary'}`}
             >
               Hakkımda
-            </Link>
-            <Link 
-              to="/hizmetler" 
-              className={`hover:text-primary transition-colors ${isActive('/hizmetler') ? 'text-primary font-medium' : 'text-text-secondary'}`}
-            >
-              Hizmetler
-            </Link>
-            <Link 
-              to="/blog" 
-              className={`hover:text-primary transition-colors ${isActive('/blog') ? 'text-primary font-medium' : 'text-text-secondary'}`}
-            >
-              Blog
             </Link>
             <Link 
               to="/sss" 
