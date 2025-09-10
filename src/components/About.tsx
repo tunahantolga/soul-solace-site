@@ -11,17 +11,17 @@ const About = () => {
           <div className="space-y-10">
             <div className="space-y-6">
               <div className="inline-flex items-center px-6 py-3 bg-primary/10 text-primary rounded-full text-sm font-medium">
-                👋 Merhaba, Ben Ayşe
+                👨‍⚕️ Merhaba, Ben Dr. İbrahim
               </div>
               <h2 className="text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
-                Sizinle birlikte
-                <span className="text-primary block">iyileşme yolculuğuna</span>
-                <span className="text-accent">çıkıyoruz</span>
+                Psikanaliz ve Nörobilim
+                <span className="text-primary block">alanında uzman</span>
+                <span className="text-accent">doktor</span>
               </h2>
               <p className="text-xl text-text-secondary leading-relaxed">
-                Modern psikoloji yaklaşımlarını kullanarak, her danışanıma özel 
-                terapi süreçleri tasarlıyorum. Amacım sizin güçlü yanlarınızı keşfetmenize 
-                ve yaşam kalitenizi artırmanıza yardımcı olmak.
+                İstanbul Üniversitesi Tıp Fakültesi mezunu, Lyon'da psikanaliz eğitimi almış, 
+                Klinik Psikoloji Yüksek Lisansı sahibi hekim olarak modern psikoanalitik yaklaşımlarla 
+                her danışanıma özel terapi süreçleri sunuyorum.
               </p>
             </div>
 
@@ -31,8 +31,8 @@ const About = () => {
                   <GraduationCap className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-text-primary mb-2">Eğitim & Uzmanlık</h3>
-                  <p className="text-text-secondary">İstanbul Üniversitesi Psikoloji Bölümü mezunu. Bilişsel Davranışçı Terapi ve EMDR uzmanı.</p>
+                  <h3 className="font-semibold text-text-primary mb-2">Tıbbi Eğitim</h3>
+                  <p className="text-text-secondary">İstanbul Üniversitesi Tıp Fakültesi mezunu. Lyon, Fransa'da psikanaliz eğitimi. Klinik Psikoloji Yüksek Lisansı.</p>
                 </div>
               </div>
 
@@ -41,8 +41,8 @@ const About = () => {
                   <Award className="h-6 w-6 text-accent" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-text-primary mb-2">Sertifikalar</h3>
-                  <p className="text-text-secondary">CBT Sertifikası, EMDR Terapisti, Çift ve Aile Terapisi uzmanı olarak hizmet veriyorum.</p>
+                  <h3 className="font-semibold text-text-primary mb-2">Uzmanlık Alanları</h3>
+                  <p className="text-text-secondary">TLDP (Zaman Sınırlı Dinamik Psikoterapi), Aktarım Odaklı Psikoterapi, Duygu Odaklı Psikoterapi uzmanı.</p>
                 </div>
               </div>
 
@@ -51,8 +51,8 @@ const About = () => {
                   <Heart className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-text-primary mb-2">Yaklaşımım</h3>
-                  <p className="text-text-secondary">Her danışanımın eşsiz olduğuna inanıyorum. Empatik, yargısız ve güvenli bir ortam sunuyorum.</p>
+                  <h3 className="font-semibold text-text-primary mb-2">Araştırma</h3>
+                  <p className="text-text-secondary">Nörobilim doktora tezi: "Kısa Süreli Dinamik Psikoterapinin beyin serotonin reseptörlerine etkisi"</p>
                 </div>
               </div>
             </div>
@@ -66,7 +66,7 @@ const About = () => {
             <Card className="overflow-hidden shadow-card">
               <img 
                 src={psychologistPortrait} 
-                alt="Dr. Ayşe Kaya - Klinik Psikolog"
+                alt="Dr. İbrahim Sarı MD., MSc. - Psikanaliz ve Nörobilim Uzmanı"
                 className="w-full h-[600px] object-cover"
               />
             </Card>
