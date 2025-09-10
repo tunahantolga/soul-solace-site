@@ -5,16 +5,23 @@ import psychologistPortrait from "@/assets/psychologist-portrait.jpg";
 
 const About = () => {
   return (
-    <section className="py-20 bg-warm-bg">
+    <section className="py-32 bg-gradient-to-br from-warm-bg to-primary/5">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-4xl font-bold text-text-primary">
-                <span className="text-primary">Dr. Ayşe Kaya</span> ile tanışın
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-10">
+            <div className="space-y-6">
+              <div className="inline-flex items-center px-6 py-3 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                👋 Merhaba, Ben Ayşe
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
+                Sizinle birlikte
+                <span className="text-primary block">iyileşme yolculuğuna</span>
+                <span className="text-accent">çıkıyoruz</span>
               </h2>
-              <p className="text-xl text-text-secondary">
-                Psikoloji alanında 5+ yıllık deneyimimle, bireylerin ruh sağlığını koruma ve iyileştirme konusunda uzmanlaştım.
+              <p className="text-xl text-text-secondary leading-relaxed">
+                Modern psikoloji yaklaşımlarını kullanarak, her danışanıma özel 
+                terapi süreçleri tasarlıyorum. Amacım sizin güçlü yanlarınızı keşfetmenize 
+                ve yaşam kalitenizi artırmanıza yardımcı olmak.
               </p>
             </div>
 

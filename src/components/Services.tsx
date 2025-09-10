@@ -31,38 +31,45 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-32 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-4xl font-bold text-text-primary">
-            Sunduğum <span className="text-primary">Hizmetler</span>
+        <div className="text-center space-y-6 mb-20">
+          <div className="inline-flex items-center px-6 py-3 bg-primary/10 text-primary rounded-full text-sm font-medium">
+            🎯 Özel Hizmetler
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-text-primary">
+            Size Özel <span className="text-primary">Terapi Çözümleri</span>
           </h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            Her bireyin ihtiyaçlarına özel olarak tasarlanmış, kanıta dayalı terapi yaklaşımları ile size destek oluyorum.
+          <p className="text-xl text-text-secondary max-w-4xl mx-auto leading-relaxed">
+            Modern psikoloji yaklaşımları ve kanıta dayalı terapi yöntemleriyle, 
+            her danışanıma özel çözümler sunuyorum.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="group hover:shadow-card transition-all duration-300 hover:-translate-y-2 bg-card border-border">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-primary-soft rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <service.icon className="h-8 w-8 text-primary group-hover:text-primary-foreground" />
+            <Card key={index} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 bg-card border-border rounded-3xl overflow-hidden">
+              <CardHeader className="text-center pb-6 pt-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="h-10 w-10 text-primary" />
                 </div>
-                <CardTitle className="text-xl text-text-primary">{service.title}</CardTitle>
+                <CardTitle className="text-2xl font-bold text-text-primary mb-3">{service.title}</CardTitle>
+                <p className="text-text-secondary leading-relaxed">{service.description}</p>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-text-secondary text-center">{service.description}</p>
-                <ul className="space-y-2">
+              <CardContent className="space-y-6 px-8 pb-8">
+                <div className="space-y-3">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-text-secondary">
-                      <ArrowRight className="h-4 w-4 text-accent mr-2 flex-shrink-0" />
-                      {feature}
-                    </li>
+                    <div key={featureIndex} className="flex items-center text-text-secondary">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
+                      <span className="text-sm">{feature}</span>
+                    </div>
                   ))}
-                </ul>
-                <Button variant="outline" className="w-full mt-4 border-primary text-primary hover:bg-primary-soft">
-                  Detayları Gör
+                </div>
+                <Button 
+                  className="w-full bg-primary hover:bg-primary-hover text-primary-foreground rounded-2xl py-6 text-lg font-medium shadow-lg hover:shadow-xl transition-all"
+                >
+                  Hemen Başla
+                  <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
               </CardContent>
             </Card>
