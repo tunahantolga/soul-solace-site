@@ -24,6 +24,7 @@ export default {
           foreground: "hsl(var(--primary-foreground))",
           soft: "hsl(var(--primary-soft))",
           hover: "hsl(var(--primary-hover))",
+          light: "hsl(var(--primary-light))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -40,6 +41,7 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          light: "hsl(var(--accent-light))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -67,15 +69,38 @@ export default {
       },
       backgroundImage: {
         'hero-gradient': 'var(--hero-gradient)',
+        'card-gradient': 'var(--card-gradient)',
       },
       boxShadow: {
-        'card': 'var(--card-shadow)',
+        'premium': 'var(--premium-shadow)',
+        'soft': 'var(--soft-shadow)',
         'button': 'var(--button-shadow)',
       },
       colors: {
         'text-primary': 'hsl(var(--text-primary))',
         'text-secondary': 'hsl(var(--text-secondary))',
+        'text-muted': 'hsl(var(--text-muted))',
         'warm-bg': 'hsl(var(--warm-background))',
+        'surface-elevated': 'hsl(var(--surface-elevated))',
+      },
+      fontSize: {
+        '2xs': ['0.625rem', '0.875rem'],
+        'xs': ['0.75rem', '1rem'],
+        'sm': ['0.875rem', '1.25rem'],
+        'base': ['1rem', '1.5rem'],
+        'lg': ['1.125rem', '1.75rem'],
+        'xl': ['1.25rem', '1.875rem'],
+        '2xl': ['1.5rem', '2rem'],
+        '3xl': ['1.875rem', '2.25rem'],
+        '4xl': ['2.25rem', '2.5rem'],
+        '5xl': ['3rem', '3.25rem'],
+        '6xl': ['3.75rem', '3.75rem'],
+        '7xl': ['4.5rem', '4.5rem'],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
       },
       keyframes: {
         "accordion-down": {

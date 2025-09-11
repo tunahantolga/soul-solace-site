@@ -2,51 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Psychology Website Design System - Professional, Calming, Trust-inspiring
-All colors MUST be HSL.
+/* Premium Psychology Website Design System - Sophisticated, Modern, Trust-inspiring
+All colors MUST be HSL for perfect theming.
 */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 15% 20%;
+    --foreground: 220 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 15% 20%;
+    --card-foreground: 220 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 15% 20%;
+    --popover-foreground: 220 15% 15%;
 
-    /* Professional teal-sage primary palette */
-    --primary: 170 35% 45%;
+    /* Sophisticated sage-emerald primary palette */
+    --primary: 165 40% 35%;
     --primary-foreground: 0 0% 98%;
-    --primary-soft: 170 25% 85%;
-    --primary-hover: 170 40% 40%;
+    --primary-soft: 165 25% 90%;
+    --primary-hover: 165 45% 30%;
+    --primary-light: 165 30% 85%;
 
-    /* Warm accent colors */
-    --secondary: 45 25% 92%;
-    --secondary-foreground: 210 15% 25%;
-    --accent: 35 40% 70%;
-    --accent-foreground: 210 20% 15%;
+    /* Premium warm accents */
+    --secondary: 40 20% 96%;
+    --secondary-foreground: 220 15% 20%;
+    --accent: 25 35% 65%;
+    --accent-foreground: 220 20% 10%;
+    --accent-light: 25 25% 95%;
 
-    /* Muted colors for backgrounds */
-    --muted: 160 10% 96%;
-    --muted-foreground: 210 10% 50%;
+    /* Refined neutral palette */
+    --muted: 200 15% 97%;
+    --muted-foreground: 220 10% 55%;
 
     --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 160 15% 90%;
-    --input: 160 15% 95%;
-    --ring: 170 35% 45%;
+    --border: 200 15% 92%;
+    --input: 200 10% 96%;
+    --ring: 165 40% 35%;
 
-    /* Custom design tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(170 35% 45% / 0.05), hsl(35 40% 70% / 0.1));
-    --card-shadow: 0 4px 20px hsl(170 35% 45% / 0.1);
-    --button-shadow: 0 6px 24px hsl(170 35% 45% / 0.25);
-    --text-primary: 210 15% 20%;
-    --text-secondary: 210 10% 45%;
-    --warm-background: 35 30% 98%;
+    /* Premium design tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(165 40% 35% / 0.03), hsl(25 35% 65% / 0.05));
+    --card-gradient: linear-gradient(145deg, hsl(0 0% 100%), hsl(200 15% 99%));
+    --premium-shadow: 0 8px 32px hsl(165 40% 35% / 0.08);
+    --soft-shadow: 0 2px 16px hsl(220 15% 15% / 0.04);
+    --button-shadow: 0 4px 20px hsl(165 40% 35% / 0.2);
+    --text-primary: 220 15% 15%;
+    --text-secondary: 220 10% 50%;
+    --text-muted: 220 8% 65%;
+    --surface-elevated: 0 0% 99%;
+    --warm-background: 25 20% 99%;
 
     --radius: 0.5rem;
 
@@ -122,6 +128,36 @@ All colors MUST be HSL.
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-optical-sizing: auto;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-effect {
+    background: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .premium-card {
+    background: var(--card-gradient);
+    box-shadow: var(--premium-shadow);
+    border: 1px solid hsl(var(--border) / 0.6);
   }
 }
