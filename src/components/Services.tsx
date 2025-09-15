@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";geo
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Brain, Users, Heart, Lightbulb, ArrowRight } from "lucide-react";
 
