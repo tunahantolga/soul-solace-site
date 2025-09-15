@@ -27,7 +27,7 @@ const faqData = [
   },
   {
     question: "Seans ücretleri nelerdir?",
-    answer: "Bireysel terapi seansları 1200₺'dir. İlk değerlendirme görüşmesi de aynı ücrettir. Ödeme seansın sonunda nakit veya kredi kartı ile yapılabilir. SGK anlaşmamız bulunmamaktadır."
+    answer: "Fiyat bilgileri için lütfen benimle iletişime geçin. Size en uygun terapi paketini birlikte belirleyelim. SGK anlaşmamız bulunmamaktadır."
   },
   {
     question: "Gizlilik nasıl korunur?",
@@ -70,20 +70,12 @@ const SSS = () => {
             </div>
 
             {/* Quick Info Cards */}
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
               <Card className="shadow-card">
                 <CardContent className="text-center p-6">
                   <Clock className="h-8 w-8 text-primary mx-auto mb-3" />
                   <h3 className="font-semibold text-text-primary mb-2">Seans Süresi</h3>
                   <p className="text-text-secondary text-sm">50 dakika</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="shadow-card">
-                <CardContent className="text-center p-6">
-                  <CreditCard className="h-8 w-8 text-primary mx-auto mb-3" />
-                  <h3 className="font-semibold text-text-primary mb-2">Seans Ücreti</h3>
-                  <p className="text-text-secondary text-sm">1200₺</p>
                 </CardContent>
               </Card>
               

@@ -70,6 +70,7 @@ export default {
       backgroundImage: {
         'hero-gradient': 'var(--hero-gradient)',
         'card-gradient': 'var(--card-gradient)',
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
       boxShadow: {
         'premium': 'var(--premium-shadow)',
@@ -173,6 +174,22 @@ export default {
             transform: "translateY(-10px)",
           },
         },
+        "bounce-slow": {
+          "0%, 100%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-20px)",
+          },
+        },
+        "pulse-slow": {
+          "0%, 100%": {
+            opacity: "1",
+          },
+          "50%": {
+            opacity: "0.7",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -183,6 +200,8 @@ export default {
         "slide-up": "slide-up 0.5s ease-out",
         "glow": "glow 2s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
+        "bounce-slow": "bounce-slow 4s ease-in-out infinite",
+        "pulse-slow": "pulse-slow 3s ease-in-out infinite",
       },
     },
   },
