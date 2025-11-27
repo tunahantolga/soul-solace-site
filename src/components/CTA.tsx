@@ -3,10 +3,14 @@ import { ArrowRight, Phone, Mail } from "lucide-react";
 
 const CTA = () => {
   return (
-    <section className="py-20 relative overflow-hidden">
-      {/* Solid gradient background with better contrast */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-hover to-accent-blue">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-black/10"></div>
+    <section className="py-20 relative overflow-hidden bg-gradient-to-br from-primary/10 via-accent-blue/10 to-primary-glow/10">
+      {/* Vibrant background decorations */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-primary to-accent-blue opacity-20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-primary-glow to-primary opacity-15 rounded-full blur-3xl"></div>
+      
+      {/* Main content card */}
+      <div className="absolute inset-8 md:inset-12 bg-gradient-to-br from-primary via-primary-hover to-accent-blue rounded-3xl">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
