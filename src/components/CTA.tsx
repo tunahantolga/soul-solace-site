@@ -3,25 +3,23 @@ import { ArrowRight } from "lucide-react";
 
 const CTA = () => {
   return (
-    <section className="py-32 bg-slate-900">
+    <section className="py-16 bg-primary">
       <div className="container mx-auto px-6">
-        <div className="text-center space-y-8">
-          <h2 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
-            <span className="block">İyileşme yolculuğunuz</span>
-            <span className="block text-slate-300">küçük bir adımla başlar —</span>
-            <span className="block text-slate-300">ulaşmak.</span>
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-semibold text-primary-foreground mb-4">
+            İlk adımı atmaya hazır mısınız?
           </h2>
           
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            İyileşme yolculuğunuz küçük bir adımla başlar — ulaşmak.
+          <p className="text-base text-primary-foreground/80 mb-6">
+            Randevu almak için iletişime geçin
           </p>
           
           <Button 
-            size="lg" 
-            className="bg-white hover:bg-slate-100 text-slate-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105"
+            size="default" 
+            className="bg-background text-foreground hover:bg-background/90 h-11 px-6"
           >
             Randevu Al
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </div>
