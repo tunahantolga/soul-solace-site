@@ -2,56 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ultra-Modern Minimalist Design System - Trust through Simplicity
+/* Modern Psychology Design System - Trust, Calm, Innovation
 All colors MUST be HSL for perfect theming.
+Blue palette for therapy and mental wellness
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    --background: 210 40% 98%;
+    --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card-foreground: 215 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 215 25% 15%;
 
-    /* Strong, trustworthy primary - deep navy */
-    --primary: 220 90% 12%;
+    /* Calming blue primary - trust and serenity */
+    --primary: 210 85% 56%;
     --primary-foreground: 0 0% 100%;
-    --primary-soft: 220 20% 96%;
-    --primary-hover: 220 90% 8%;
-    --primary-light: 220 20% 98%;
+    --primary-soft: 210 70% 92%;
+    --primary-hover: 210 85% 48%;
+    --primary-light: 210 70% 96%;
+    --primary-glow: 210 100% 65%;
 
-    /* Minimal secondary palette */
-    --secondary: 0 0% 97%;
-    --secondary-foreground: 0 0% 10%;
-    --accent: 0 0% 94%;
-    --accent-foreground: 0 0% 10%;
+    /* Modern secondary palette */
+    --secondary: 200 60% 95%;
+    --secondary-foreground: 215 25% 15%;
+    --accent: 180 60% 88%;
+    --accent-foreground: 215 25% 15%;
+    --accent-blue: 200 90% 50%;
 
-    /* Clean neutral palette */
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    /* Soft neutral palette */
+    --muted: 210 30% 96%;
+    --muted-foreground: 215 15% 50%;
 
     --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 92%;
-    --input: 0 0% 97%;
-    --ring: 220 90% 12%;
+    --border: 210 30% 90%;
+    --input: 210 30% 96%;
+    --ring: 210 85% 56%;
 
-    /* Minimalist design tokens */
-    --hero-gradient: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 99%));
-    --card-gradient: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 99%));
-    --premium-shadow: 0 1px 3px hsl(0 0% 0% / 0.05);
-    --soft-shadow: 0 1px 2px hsl(0 0% 0% / 0.04);
-    --button-shadow: 0 1px 3px hsl(0 0% 0% / 0.1);
-    --text-primary: 0 0% 10%;
-    --text-secondary: 0 0% 40%;
-    --text-muted: 0 0% 55%;
-    --surface-elevated: 0 0% 99%;
-    --warm-background: 0 0% 100%;
+    /* Modern design tokens with blue harmony */
+    --hero-gradient: linear-gradient(135deg, hsl(210 100% 97%), hsl(200 100% 95%));
+    --card-gradient: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 50% 98%));
+    --premium-shadow: 0 4px 24px hsl(210 85% 56% / 0.08);
+    --soft-shadow: 0 2px 8px hsl(210 50% 30% / 0.04);
+    --button-shadow: 0 4px 16px hsl(210 85% 56% / 0.25);
+    --glow-shadow: 0 0 40px hsl(210 100% 65% / 0.3);
+    --text-primary: 215 25% 15%;
+    --text-secondary: 215 15% 45%;
+    --text-muted: 215 10% 60%;
+    --surface-elevated: 210 50% 99%;
+    --warm-background: 210 40% 98%;
 
     --radius: 0.5rem;
 
@@ -73,41 +77,41 @@ All colors MUST be HSL for perfect theming.
   }
 
   .dark {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 95%;
+    --background: 215 30% 8%;
+    --foreground: 210 30% 95%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 95%;
+    --card: 215 25% 10%;
+    --card-foreground: 210 30% 95%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 215 25% 10%;
+    --popover-foreground: 210 30% 95%;
 
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 10%;
-    --primary-soft: 0 0% 15%;
-    --primary-hover: 0 0% 90%;
+    --primary: 210 85% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 210 50% 20%;
+    --primary-hover: 210 85% 64%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 95%;
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 95%;
+    --secondary: 215 20% 15%;
+    --secondary-foreground: 210 30% 90%;
+    --accent: 200 40% 25%;
+    --accent-foreground: 210 30% 95%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 215 20% 15%;
+    --muted-foreground: 210 20% 60%;
 
     --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 95%;
+    --destructive-foreground: 210 30% 95%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 12%;
-    --ring: 0 0% 95%;
+    --border: 215 20% 18%;
+    --input: 215 20% 15%;
+    --ring: 210 85% 56%;
 
-    --hero-gradient: linear-gradient(180deg, hsl(0 0% 8%), hsl(0 0% 10%));
-    --card-shadow: 0 1px 3px hsl(0 0% 0% / 0.5);
-    --button-shadow: 0 1px 3px hsl(0 0% 0% / 0.8);
-    --text-primary: 0 0% 95%;
-    --text-secondary: 0 0% 65%;
-    --warm-background: 0 0% 8%;
+    --hero-gradient: linear-gradient(135deg, hsl(215 30% 8%), hsl(210 35% 12%));
+    --card-shadow: 0 4px 24px hsl(210 85% 56% / 0.15);
+    --button-shadow: 0 4px 16px hsl(210 85% 56% / 0.4);
+    --text-primary: 210 30% 95%;
+    --text-secondary: 210 20% 70%;
+    --warm-background: 215 30% 8%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -142,15 +146,15 @@ All colors MUST be HSL for perfect theming.
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-blue)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .glass-effect {
-    background: hsl(var(--card) / 0.8);
-    backdrop-filter: blur(12px);
+    background: hsl(var(--card) / 0.7);
+    backdrop-filter: blur(16px);
     border: 1px solid hsl(var(--border) / 0.5);
   }
 
@@ -158,6 +162,44 @@ All colors MUST be HSL for perfect theming.
     background: var(--card-gradient);
     box-shadow: var(--premium-shadow);
     border: 1px solid hsl(var(--border) / 0.6);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .premium-card:hover {
+    box-shadow: var(--glow-shadow);
+    transform: translateY(-4px);
+  }
+
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .scale-on-hover {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scale-on-hover:hover {
+    transform: scale(1.05);
   }
 
   /* Scroll animation utilities */
