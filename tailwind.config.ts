@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Open Sans", "system-ui", "sans-serif"],
+        heading: ["Poppins", "system-ui", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -42,6 +46,7 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
           light: "hsl(var(--accent-light))",
+          warm: "hsl(var(--accent-warm))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
