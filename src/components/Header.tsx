@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import logoImage from "@/assets/logo-is.jpg";
 
 const Header = () => {
   const location = useLocation();
@@ -11,11 +12,18 @@ const Header = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent-blue rounded-xl flex items-center justify-center shadow-button group-hover:scale-105 transition-transform duration-300">
-              <span className="text-white font-bold text-lg">İS</span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img 
+              src={logoImage} 
+              alt="Dr. İbrahim Sarı Logo" 
+              className="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="flex flex-col">
+              <span className="text-base font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
+                Dr. İbrahim Sarı
+              </span>
+              <span className="text-xs text-muted-foreground">MD, MSc</span>
             </div>
-            <span className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">Dr. İbrahim Sarı</span>
           </Link>
 
           {/* Navigation */}
