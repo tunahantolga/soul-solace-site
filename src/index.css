@@ -171,7 +171,7 @@ Blue palette for therapy and mental wellness
   }
 
   .floating {
-    animation: float 6s ease-in-out infinite;
+    animation: none;
   }
 
   @keyframes float {
@@ -180,7 +180,9 @@ Blue palette for therapy and mental wellness
   }
 
   .fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   @keyframes fadeInUp {
@@ -195,11 +197,11 @@ Blue palette for therapy and mental wellness
   }
 
   .scale-on-hover {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.2s ease;
   }
 
   .scale-on-hover:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
 
   /* Scroll animation utilities */
