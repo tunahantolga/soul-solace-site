@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Calendar, GraduationCap, Video, ExternalLink } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -23,9 +23,40 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               İntegratif psikoterapi yaklaşımıyla profesyonel ve güvenilir ruh sağlığı desteği sunuyoruz.
             </p>
+            
+            {/* Featured Links */}
+            <div className="space-y-2 mb-4">
+              <a 
+                href="https://www.udemy.com/user/dr-ibrahim-sari/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-hover transition-colors group"
+              >
+                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <GraduationCap className="w-4 h-4 text-white" />
+                </div>
+                <span>Udemy Süpervizyon Eğitimleri</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+              <a 
+                href="https://www.youtube.com/@dribrahimsari" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-hover transition-colors group"
+              >
+                <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-pink-500 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <Video className="w-4 h-4 text-white" />
+                </div>
+                <span>YouTube Kanalı</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+
             <div className="flex gap-3">
               <a 
-                href="#" 
+                href="https://www.facebook.com/dribrahimsari" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 bg-primary/10 hover:bg-primary rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
               >
                 <svg className="w-4 h-4 text-primary group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -33,15 +64,9 @@ const Footer = () => {
                 </svg>
               </a>
               <a 
-                href="#" 
-                className="w-9 h-9 bg-primary/10 hover:bg-primary rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
-              >
-                <svg className="w-4 h-4 text-primary group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
-                </svg>
-              </a>
-              <a 
-                href="#" 
+                href="https://www.instagram.com/dr.ibrahimsari" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 bg-primary/10 hover:bg-primary rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
               >
                 <svg className="w-4 h-4 text-primary group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -73,11 +98,11 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Contact */}
+          {/* Contact & Appointment */}
           <div>
             <h3 className="text-sm font-semibold text-foreground mb-4 flex items-center gap-2">
               <div className="w-1 h-4 bg-gradient-to-b from-primary to-accent-blue rounded-full"></div>
-              İletişim
+              İletişim & Randevu
             </h3>
             <div className="flex flex-col gap-3">
               <a 
@@ -103,6 +128,34 @@ const Footer = () => {
                   <MapPin className="w-4 h-4 text-primary" />
                 </div>
                 <span className="text-xs">İstanbul, Türkiye</span>
+              </div>
+              
+              {/* Online Randevu Linkleri */}
+              <div className="mt-2 pt-2 border-t border-border">
+                <p className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1">
+                  <Calendar className="w-3 h-3" />
+                  Online Randevu
+                </p>
+                <div className="flex flex-col gap-1">
+                  <a 
+                    href="https://www.doktortakvimi.com/ibrahim-sari-4/psikoloji/istanbul" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-primary hover:text-primary-hover transition-colors flex items-center gap-1"
+                  >
+                    Doktor Takvimi
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                  <a 
+                    href="https://www.doktorsitesi.com/uzm-psk-ibrahim-sari/psikoloji/istanbul" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-primary hover:text-primary-hover transition-colors flex items-center gap-1"
+                  >
+                    Doktor Sitesi
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
