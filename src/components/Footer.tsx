@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Calendar, GraduationCap, Video, ExternalLink } from "lucide-react";
+import logoImage from "@/assets/logo-is.jpg";
 
 const Footer = () => {
   return (
@@ -11,13 +12,15 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent-blue rounded-xl flex items-center justify-center shadow-button">
-                <span className="text-white font-bold text-lg">İS</span>
-              </div>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src={logoImage} 
+                alt="Dr. İbrahim Sarı Logo" 
+                className="w-12 h-12 object-contain"
+              />
               <div>
                 <h3 className="text-lg font-bold text-foreground">Dr. İbrahim Sarı</h3>
-                <p className="text-xs text-muted-foreground">MD., MSc.</p>
+                <p className="text-xs text-muted-foreground">MD, MSc</p>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
@@ -165,7 +168,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs text-muted-foreground text-center md:text-left">
-              © {new Date().getFullYear()} Dr. İbrahim Sarı. Tüm hakları saklıdır.
+              © {new Date().getFullYear()} Dr. İbrahim Sarı, MD, MSc. Tüm hakları saklıdır.
             </p>
             <div className="flex items-center gap-4 text-xs text-muted-foreground">
               <Link to="/sss" className="hover:text-primary transition-colors">Gizlilik Politikası</Link>

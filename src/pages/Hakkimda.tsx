@@ -47,10 +47,10 @@ const Hakkimda = () => {
                     <span className="text-sm font-medium text-primary">Profesyonel Profil</span>
                   </div>
                   
-                  <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
-                    Dr. İbrahim Sarı
-                    <span className="block gradient-text text-3xl mt-2">MD., MSc.</span>
-                  </h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
+            Dr. İbrahim Sarı
+            <span className="block gradient-text text-3xl mt-2">MD, MSc</span>
+          </h1>
                   
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     Psikanaliz, nörobilim ve integratif psikoterapi alanlarında uzmanlaşmış, 
