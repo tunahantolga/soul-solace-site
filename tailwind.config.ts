@@ -28,6 +28,7 @@ export default {
           soft: "hsl(var(--primary-soft))",
           hover: "hsl(var(--primary-hover))",
           light: "hsl(var(--primary-light))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -44,6 +45,7 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          blue: "hsl(var(--accent-blue))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -78,6 +80,7 @@ export default {
         'premium': 'var(--premium-shadow)',
         'soft': 'var(--soft-shadow)',
         'button': 'var(--button-shadow)',
+        'glow': 'var(--glow-shadow)',
       },
       colors: {
         'text-primary': 'hsl(var(--text-primary))',
