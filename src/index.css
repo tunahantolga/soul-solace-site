@@ -2,57 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Premium Psychology Website Design System - Sophisticated, Modern, Trust-inspiring
+/* Modern Psychology Website Design System - Calming, Trustworthy, Minimal
 All colors MUST be HSL for perfect theming.
+Palette: Soft turquoise, pastel tones, gentle accents
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 15% 15%;
+    --background: 100 50% 97%;
+    --foreground: 200 15% 25%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    --card-foreground: 200 15% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    --popover-foreground: 200 15% 25%;
 
-    /* Professional psychology color palette - calm and trustworthy */
-    --primary: 210 25% 45%;
-    --primary-foreground: 0 0% 98%;
-    --primary-soft: 210 20% 92%;
-    --primary-hover: 210 30% 40%;
-    --primary-light: 210 15% 88%;
+    /* Calming turquoise primary - trust and serenity */
+    --primary: 193 100% 42%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 183 35% 77%;
+    --primary-hover: 193 100% 35%;
+    --primary-light: 183 35% 90%;
 
-    /* Sophisticated warm accents */
-    --secondary: 220 15% 96%;
-    --secondary-foreground: 220 15% 20%;
-    --accent: 200 30% 55%;
-    --accent-foreground: 220 20% 10%;
-    --accent-light: 200 20% 92%;
+    /* Soft pastel accents */
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 200 15% 25%;
+    --accent: 142 46% 80%;
+    --accent-foreground: 200 15% 25%;
+    --accent-light: 142 46% 92%;
+    --accent-warm: 43 100% 51%;
 
     /* Refined neutral palette */
-    --muted: 200 15% 97%;
-    --muted-foreground: 220 10% 55%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 200 10% 50%;
 
     --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 200 15% 92%;
-    --input: 200 10% 96%;
-    --ring: 165 40% 35%;
+    --border: 0 0% 88%;
+    --input: 0 0% 96%;
+    --ring: 193 100% 42%;
 
     /* Premium design tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(165 40% 35% / 0.03), hsl(25 35% 65% / 0.05));
-    --card-gradient: linear-gradient(145deg, hsl(0 0% 100%), hsl(200 15% 99%));
-    --premium-shadow: 0 8px 32px hsl(165 40% 35% / 0.08);
-    --soft-shadow: 0 2px 16px hsl(220 15% 15% / 0.04);
-    --button-shadow: 0 4px 20px hsl(165 40% 35% / 0.2);
-    --text-primary: 220 15% 15%;
-    --text-secondary: 220 10% 50%;
-    --text-muted: 220 8% 65%;
+    --hero-gradient: linear-gradient(135deg, hsl(183 35% 77% / 0.1), hsl(142 46% 80% / 0.1));
+    --card-gradient: linear-gradient(145deg, hsl(0 0% 100%), hsl(183 35% 98%));
+    --premium-shadow: 0 8px 32px hsl(193 100% 42% / 0.06);
+    --soft-shadow: 0 2px 16px hsl(200 15% 25% / 0.03);
+    --button-shadow: 0 4px 20px hsl(193 100% 42% / 0.15);
+    --text-primary: 200 15% 25%;
+    --text-secondary: 200 10% 45%;
+    --text-muted: 200 8% 60%;
     --surface-elevated: 0 0% 99%;
-    --warm-background: 25 20% 99%;
+    --warm-background: 100 50% 97%;
 
     --radius: 0.5rem;
 
@@ -74,41 +76,41 @@ All colors MUST be HSL for perfect theming.
   }
 
   .dark {
-    --background: 210 20% 8%;
-    --foreground: 210 10% 90%;
+    --background: 200 25% 10%;
+    --foreground: 183 20% 90%;
 
-    --card: 210 15% 12%;
-    --card-foreground: 210 10% 90%;
+    --card: 200 20% 12%;
+    --card-foreground: 183 20% 90%;
 
-    --popover: 210 15% 12%;
-    --popover-foreground: 210 10% 90%;
+    --popover: 200 20% 12%;
+    --popover-foreground: 183 20% 90%;
 
-    --primary: 170 40% 55%;
-    --primary-foreground: 210 20% 8%;
-    --primary-soft: 170 25% 25%;
-    --primary-hover: 170 45% 60%;
+    --primary: 193 100% 42%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 193 50% 25%;
+    --primary-hover: 193 100% 50%;
 
-    --secondary: 210 15% 15%;
-    --secondary-foreground: 210 10% 85%;
-    --accent: 35 30% 60%;
-    --accent-foreground: 210 20% 8%;
+    --secondary: 200 15% 15%;
+    --secondary-foreground: 183 10% 85%;
+    --accent: 142 46% 60%;
+    --accent-foreground: 200 20% 10%;
 
-    --muted: 210 15% 15%;
-    --muted-foreground: 210 10% 65%;
+    --muted: 200 15% 15%;
+    --muted-foreground: 200 10% 65%;
 
     --destructive: 0 70% 50%;
-    --destructive-foreground: 210 10% 90%;
+    --destructive-foreground: 183 20% 90%;
 
-    --border: 210 15% 20%;
-    --input: 210 15% 15%;
-    --ring: 170 40% 55%;
+    --border: 200 15% 20%;
+    --input: 200 15% 15%;
+    --ring: 193 100% 42%;
 
-    --hero-gradient: linear-gradient(135deg, hsl(170 35% 15% / 0.3), hsl(35 30% 20% / 0.2));
+    --hero-gradient: linear-gradient(135deg, hsl(183 35% 15% / 0.3), hsl(142 30% 20% / 0.2));
     --card-shadow: 0 4px 20px hsl(0 0% 0% / 0.3);
-    --button-shadow: 0 6px 24px hsl(170 40% 55% / 0.3);
-    --text-primary: 210 10% 85%;
-    --text-secondary: 210 10% 65%;
-    --warm-background: 210 15% 10%;
+    --button-shadow: 0 6px 24px hsl(193 100% 42% / 0.3);
+    --text-primary: 183 20% 85%;
+    --text-secondary: 183 10% 65%;
+    --warm-background: 200 20% 10%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -128,7 +130,7 @@ All colors MUST be HSL for perfect theming.
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     font-optical-sizing: auto;
     line-height: 1.6;
@@ -137,6 +139,7 @@ All colors MUST be HSL for perfect theming.
   }
 
   h1, h2, h3, h4, h5, h6 {
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.025em;
