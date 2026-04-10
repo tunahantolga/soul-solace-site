@@ -9,7 +9,8 @@ Blue palette for therapy and mental wellness
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
+    /* Creamy light surface (less cold than pure blue-white) */
+    --background: 38 55% 97%;
     --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
@@ -18,20 +19,20 @@ Blue palette for therapy and mental wellness
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    /* Calming blue primary - trust and serenity */
-    --primary: 210 85% 56%;
+    /* Modern, düşük doygunluklu blue primary */
+    --primary: 210 65% 50%;
     --primary-foreground: 0 0% 100%;
-    --primary-soft: 210 70% 92%;
-    --primary-hover: 210 85% 48%;
-    --primary-light: 210 70% 96%;
-    --primary-glow: 210 100% 65%;
+    --primary-soft: 210 60% 93%;
+    --primary-hover: 210 65% 44%;
+    --primary-light: 210 60% 97%;
+    --primary-glow: 210 80% 58%;
 
     /* Modern secondary palette */
-    --secondary: 200 60% 95%;
+    --secondary: 210 40% 95%;
     --secondary-foreground: 215 25% 15%;
-    --accent: 180 60% 88%;
+    --accent: 200 50% 90%;
     --accent-foreground: 215 25% 15%;
-    --accent-blue: 200 90% 50%;
+    --accent-blue: 200 65% 45%;
 
     /* Soft neutral palette */
     --muted: 210 30% 96%;
@@ -42,20 +43,21 @@ Blue palette for therapy and mental wellness
 
     --border: 210 30% 90%;
     --input: 210 30% 96%;
-    --ring: 210 85% 56%;
+    --ring: 210 70% 50%;
 
     /* Modern design tokens with blue harmony */
-    --hero-gradient: linear-gradient(135deg, hsl(210 100% 97%), hsl(200 100% 95%));
+    /* Soft warm-to-blue gradient */
+    --hero-gradient: linear-gradient(135deg, hsl(38 90% 96%), hsl(200 90% 95%));
     --card-gradient: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 50% 98%));
-    --premium-shadow: 0 4px 24px hsl(210 85% 56% / 0.08);
-    --soft-shadow: 0 2px 8px hsl(210 50% 30% / 0.04);
-    --button-shadow: 0 4px 16px hsl(210 85% 56% / 0.25);
-    --glow-shadow: 0 0 40px hsl(210 100% 65% / 0.3);
+    --premium-shadow: 0 4px 24px hsl(210 65% 50% / 0.07);
+    --soft-shadow: 0 2px 8px hsl(210 40% 35% / 0.04);
+    --button-shadow: 0 4px 16px hsl(210 65% 50% / 0.22);
+    --glow-shadow: 0 0 32px hsl(210 80% 58% / 0.22);
     --text-primary: 215 25% 15%;
     --text-secondary: 215 15% 45%;
     --text-muted: 215 10% 60%;
     --surface-elevated: 210 50% 99%;
-    --warm-background: 210 40% 98%;
+    --warm-background: 38 55% 97%;
 
     --radius: 0.5rem;
 
@@ -86,14 +88,14 @@ Blue palette for therapy and mental wellness
     --popover: 215 25% 10%;
     --popover-foreground: 210 30% 95%;
 
-    --primary: 210 85% 56%;
+    --primary: 210 65% 50%;
     --primary-foreground: 0 0% 100%;
-    --primary-soft: 210 50% 20%;
-    --primary-hover: 210 85% 64%;
+    --primary-soft: 210 45% 20%;
+    --primary-hover: 210 65% 58%;
 
     --secondary: 215 20% 15%;
     --secondary-foreground: 210 30% 90%;
-    --accent: 200 40% 25%;
+    --accent: 200 35% 24%;
     --accent-foreground: 210 30% 95%;
 
     --muted: 215 20% 15%;
@@ -104,11 +106,11 @@ Blue palette for therapy and mental wellness
 
     --border: 215 20% 18%;
     --input: 215 20% 15%;
-    --ring: 210 85% 56%;
+    --ring: 210 70% 50%;
 
     --hero-gradient: linear-gradient(135deg, hsl(215 30% 8%), hsl(210 35% 12%));
-    --card-shadow: 0 4px 24px hsl(210 85% 56% / 0.15);
-    --button-shadow: 0 4px 16px hsl(210 85% 56% / 0.4);
+    --card-shadow: 0 4px 24px hsl(210 65% 50% / 0.15);
+    --button-shadow: 0 4px 16px hsl(210 65% 50% / 0.35);
     --text-primary: 210 30% 95%;
     --text-secondary: 210 20% 70%;
     --warm-background: 215 30% 8%;
@@ -131,7 +133,7 @@ Blue palette for therapy and mental wellness
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     font-weight: 400;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -139,7 +141,7 @@ Blue palette for therapy and mental wellness
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.04em;

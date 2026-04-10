@@ -1,76 +1,94 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { BookOpenText, Languages, PencilLine, Quote } from "lucide-react";
+import { useMemo } from "react";
+import heroRoomImage from "@/assets/hero-chair-optimized.jpg";
 
 const Hero = () => {
+  const panels = useMemo(
+    () => [
+      {
+        title: "Özgün Yazılar",
+        icon: PencilLine,
+        bg: "bg-[#7FB6DA]",
+      },
+      {
+        title: "Çeviriler",
+        icon: Languages,
+        bg: "bg-[#6FB0D7]",
+      },
+      {
+        title: "Alıntılar",
+        icon: Quote,
+        bg: "bg-[#66A6CF]",
+      },
+      {
+        title: "Kitap Önerileri",
+        icon: BookOpenText,
+        bg: "bg-[#5B9DC8]",
+      },
+    ],
+    []
+  );
+
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-hero-gradient">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent-blue/20 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-primary-glow/10 rounded-full blur-3xl"></div>
+    <>
+      <section className="relative pt-24 md:pt-28 pb-8 min-h-[500px] md:min-h-[540px] overflow-hidden">
+        {/* Photo background */}
+        <div className="absolute inset-0">
+          <img
+            src={heroRoomImage}
+            alt=""
+            className="h-full w-full object-cover object-center"
+            draggable={false}
+          />
+          {/* Dark overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-background" />
         </div>
-      </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-primary/20 mb-6 shadow-lg">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-foreground">Profesyonel Psikoterapi</span>
-          </div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            {/* Badge */}
+            <div className="inline-flex max-w-[92vw] items-center px-3 sm:px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-3 shadow-lg">
+              <span className="text-xs sm:text-sm font-medium text-white/90 text-center leading-snug">
+                İntegratif Enstitü Psikolojik Danışmanlık Merkezi
+              </span>
+            </div>
 
-          {/* Main headline */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] mb-6">
-            Zihinsel Sağlığınız İçin
-            <span className="block gradient-text mt-2">Güvenilir Destek</span>
-          </h1>
-          
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
-            İntegratif psikoterapi yaklaşımıyla kişiye özel, bilimsel temelli terapi hizmetleri. 
-            Daha iyi bir yaşam için ilk adımı birlikte atalım.
-          </p>
-          
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button 
-              size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary-hover h-14 px-8 text-lg shadow-button hover:shadow-glow transition-all duration-300"
-            >
-              Randevu Al
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="h-14 px-8 text-lg border-2 border-primary/20 hover:bg-primary/5 hover:border-primary/40 transition-all duration-300"
-            >
-              Daha Fazla Bilgi
-            </Button>
-          </div>
+            {/* Main headline */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-[1.02] text-balance mb-4">
+              Psikoterapist İbrahim Sarı
+            </h1>
 
-          {/* Trust Indicators */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-8">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">300+</div>
-              <div className="text-sm text-muted-foreground">Mutlu Danışan</div>
-            </div>
-            <div className="w-px h-12 bg-border"></div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">15+</div>
-              <div className="text-sm text-muted-foreground">Yıl Deneyim</div>
-            </div>
-            <div className="w-px h-12 bg-border"></div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">%98</div>
-              <div className="text-sm text-muted-foreground">Memnuniyet</div>
-            </div>
+            {/* Subtitle */}
+            <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed mb-0 max-w-2xl mx-auto">
+              MD, MSc
+            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Hero altında 4’lü alan */}
+      <section className="w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/25">
+          {panels.map((p) => {
+            const Icon = p.icon;
+            return (
+              <div key={p.title} className={`${p.bg} relative overflow-hidden px-6 py-10 md:py-9`}>
+                <div className="h-full min-h-[150px] flex flex-col justify-between items-center text-center">
+                  <div>
+                    <Icon className="w-14 h-14 text-white/90 mx-auto" />
+                    <div className="mt-5 text-[#1F3F56] font-semibold text-lg">
+                      {p.title}
+                    </div>
+                  </div>
+
+                  <div className="text-white/70 text-sm">...</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </>
   );
 };
 

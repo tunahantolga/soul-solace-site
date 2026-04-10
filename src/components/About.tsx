@@ -4,20 +4,17 @@ const values = [
   {
     icon: Heart,
     title: "Şefkat",
-    description: "Derin anlayış ve empati ile yaklaşıyoruz",
-    color: "from-rose-500 to-pink-500"
+    description: "Derin anlayış ve empati ile yaklaşıyoruz"
   },
   {
     icon: Star,
     title: "Profesyonellik",
-    description: "Bilimsel temelli, güncel terapi yöntemleri",
-    color: "from-blue-500 to-cyan-500"
+    description: "Bilimsel temelli, güncel terapi yöntemleri"
   },
   {
     icon: Shield,
     title: "Güvenilirlik",
-    description: "Tam gizlilik ve güvenli terapötik ortam",
-    color: "from-purple-500 to-indigo-500"
+    description: "Tam gizlilik ve güvenli terapötik ortam"
   }
 ];
 
@@ -32,21 +29,21 @@ const features = [
 
 const About = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-background to-secondary/30 relative overflow-hidden">
+    <section className="py-16 md:py-20 bg-gradient-to-b from-background to-secondary/30 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
       
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <div className="inline-block px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full border border-primary/20 mb-4">
               <span className="text-sm font-medium text-primary">Neden Biz?</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
               İntegratif Psikoterapi Yaklaşımı
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
               Her danışana özel, bilimsel temelli ve güven veren profesyonel destek
             </p>
           </div>
@@ -59,12 +56,12 @@ const About = () => {
                 className="group relative bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-all duration-500 hover:shadow-premium"
                 style={{animationDelay: `${index * 0.1}s`}}
               >
-                {/* Gradient background on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`}></div>
+                {/* Gentle blue hover background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent-blue/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500"></div>
                 
                 <div className="relative z-10">
-                  <div className={`w-12 h-12 bg-gradient-to-br ${value.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}>
-                    <value.icon className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 bg-primary/15 border border-primary/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-all duration-300 shadow-sm">
+                    <value.icon className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{value.title}</h3>
                   <p className="text-sm text-muted-foreground">{value.description}</p>
@@ -74,8 +71,8 @@ const About = () => {
           </div>
 
           {/* Features List */}
-          <div className="bg-card border border-border rounded-2xl p-8 shadow-soft">
-            <h3 className="text-2xl font-semibold text-foreground mb-6 flex items-center gap-2">
+          <div className="bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-soft">
+            <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-6 flex items-center gap-2">
               <div className="w-1 h-8 bg-gradient-to-b from-primary to-accent-blue rounded-full"></div>
               Neler Sunuyoruz?
             </h3>

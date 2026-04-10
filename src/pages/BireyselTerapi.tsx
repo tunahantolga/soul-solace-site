@@ -142,11 +142,6 @@ const BireyselTerapi = () => {
                       Randevu Al
                     </Button>
                   </Link>
-                  <Link to="/sss">
-                    <Button size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 h-12 px-8">
-                      Sıkça Sorulan Sorular
-                    </Button>
-                  </Link>
                 </div>
               </div>
             </div>

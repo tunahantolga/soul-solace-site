@@ -1,42 +1,50 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote, Star } from "lucide-react";
 
+const doctorTakvimiUrl = "https://www.doktortakvimi.com/ibrahim-sari-4/psikoloji/istanbul";
+
 const testimonials = [
   {
-    name: "D.R.",
-    comment: "Terapi sürecinde kendimi güvende hissettim. Profesyonel yaklaşım ve içten destek için teşekkürler.",
+    name: "m.....",
+    comment:
+      "Bu zamana kadar aldığım en doğru karar İbrahim Hoca'dan destek almak oldu diyebilirim. Terapideki kabul alanı ve kapsayıcılık bana kendimi sorgulama ve çözüm üretme cesareti verdi.",
     rating: 5,
-    role: "Bireysel Terapi"
+    role: "DoktorTakvimi Yorumu",
+    date: "23 Mayıs 2022"
   },
   {
-    name: "E.C.",
-    comment: "Yıllardır kaygı ile mücadele ediyordum. Sonunda konuşabileceğim güvenli bir alan buldum.",
+    name: "h.....",
+    comment:
+      "Yaklaşık 7 ay sonunda olaylara daha sağlıklı yorum yapabildiğimi hissediyorum. Bu terapi süreci hayatımı iyi yönde değiştirdi.",
     rating: 5,
-    role: "Anksiyete Terapisi"
+    role: "DoktorTakvimi Yorumu",
+    date: "13 Ocak 2022"
   },
   {
-    name: "H.M.",
-    comment: "Kayıp sonrası yaşadığım zorlukta destek oldular. Acıyla baş etmeyi öğrendim.",
+    name: "ze...r",
+    comment:
+      "Yaklaşık 8 aylık süreçte problemlerimi çözme becerisi kazandım. Bu yazıyı okuyorsanız mutlaka deneyin ve kararlı olun derim.",
     rating: 5,
-    role: "Yas Terapisi"
+    role: "DoktorTakvimi Yorumu",
+    date: "29 Eylül 2021"
   }
 ];
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
+    <section className="py-16 md:py-20 bg-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
       
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 md:mb-16">
           <div className="inline-block px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full border border-primary/20 mb-4">
             <span className="text-sm font-medium text-primary">Danışan Görüşleri</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Gerçek Deneyimler
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Terapi sürecinden geçen danışanlarımızın deneyimleri
           </p>
         </div>
@@ -51,10 +59,10 @@ const Testimonials = () => {
               {/* Gradient overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
-              <CardContent className="p-6 relative z-10">
-                {/* Quote icon with gradient */}
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent-blue rounded-xl flex items-center justify-center mb-4 shadow-button group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                  <Quote className="h-6 w-6 text-white" />
+              <CardContent className="p-5 sm:p-6 relative z-10">
+                {/* Quote icon */}
+                <div className="w-12 h-12 bg-primary/15 border border-primary/20 rounded-xl flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-all duration-300">
+                  <Quote className="h-6 w-6 text-primary" />
                 </div>
                 
                 {/* Rating stars */}
@@ -85,7 +93,7 @@ const Testimonials = () => {
                       {testimonial.name}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {testimonial.role}
+                      {testimonial.role} • {testimonial.date}
                     </p>
                   </div>
                 </div>
@@ -94,21 +102,17 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* Trust Indicators */}
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-8 max-w-4xl mx-auto">
-          <div className="flex items-center gap-3 px-6 py-3 bg-card border border-border rounded-full hover:border-primary/50 hover:shadow-soft transition-all duration-300">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-foreground">%100 Gizlilik</span>
-          </div>
-          <div className="flex items-center gap-3 px-6 py-3 bg-card border border-border rounded-full hover:border-primary/50 hover:shadow-soft transition-all duration-300">
-            <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-            <span className="text-sm font-medium text-foreground">4.9/5 Ortalama</span>
-          </div>
-          <div className="flex items-center gap-3 px-6 py-3 bg-card border border-border rounded-full hover:border-primary/50 hover:shadow-soft transition-all duration-300">
-            <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-foreground">300+ Mutlu Danışan</span>
-          </div>
+        <div className="mt-10 text-center">
+          <a
+            href={doctorTakvimiUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-hover transition-colors"
+          >
+            Tüm yorumları DoktorTakvimi'nde görüntüle
+          </a>
         </div>
+
       </div>
     </section>
   );

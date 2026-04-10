@@ -27,13 +27,13 @@ const GencDanismanligi = () => {
       
       <main className="pt-24 pb-16">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-amber-500/5 via-background to-orange-500/5 py-16 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
+        <section className="bg-gradient-to-br from-primary/5 via-background to-accent-blue/5 py-16 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 backdrop-blur-sm rounded-full border border-amber-500/20 mb-6">
-                <Lightbulb className="w-4 h-4 text-amber-600" />
-                <span className="text-sm font-medium text-amber-600">Genç Danışmanlığı</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full border border-primary/20 mb-6">
+                <Lightbulb className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">Genç Danışmanlığı</span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                 Ergen ve Genç Yetişkin Danışmanlığı
@@ -74,11 +74,11 @@ const GencDanismanligi = () => {
                 <h2 className="text-3xl font-bold text-foreground mb-8">Çalışma Alanları</h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {topics.map((topic, index) => (
-                    <Card key={index} className="border border-border hover:border-amber-500/50 transition-all">
+                    <Card key={index} className="border border-border hover:border-primary/50 transition-all">
                       <CardContent className="p-6">
                         <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <topic.icon className="w-6 h-6 text-amber-600" />
+                          <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <topic.icon className="w-6 h-6 text-primary" />
                           </div>
                           <div>
                             <h3 className="text-lg font-semibold text-foreground mb-2">{topic.title}</h3>
@@ -99,7 +99,7 @@ const GencDanismanligi = () => {
                     <ul className="space-y-4">
                       {benefits.map((benefit, index) => (
                         <li key={index} className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                           <span className="text-muted-foreground">{benefit}</span>
                         </li>
                       ))}
@@ -112,7 +112,7 @@ const GencDanismanligi = () => {
               <div>
                 <h2 className="text-3xl font-bold text-foreground mb-6">Sık Karşılaşılan Konular</h2>
                 <div className="grid md:grid-cols-3 gap-4">
-                  <Card className="border border-border bg-amber-500/5">
+                  <Card className="border border-border bg-primary/5">
                     <CardContent className="p-6">
                       <h3 className="text-lg font-semibold text-foreground mb-3">Duygusal</h3>
                       <ul className="space-y-2 text-sm text-muted-foreground">
@@ -124,7 +124,7 @@ const GencDanismanligi = () => {
                     </CardContent>
                   </Card>
 
-                  <Card className="border border-border bg-orange-500/5">
+                  <Card className="border border-border bg-accent-blue/5">
                     <CardContent className="p-6">
                       <h3 className="text-lg font-semibold text-foreground mb-3">Sosyal</h3>
                       <ul className="space-y-2 text-sm text-muted-foreground">
@@ -136,7 +136,7 @@ const GencDanismanligi = () => {
                     </CardContent>
                   </Card>
 
-                  <Card className="border border-border bg-amber-600/5">
+                  <Card className="border border-border bg-primary/5">
                     <CardContent className="p-6">
                       <h3 className="text-lg font-semibold text-foreground mb-3">Gelişimsel</h3>
                       <ul className="space-y-2 text-sm text-muted-foreground">
@@ -153,7 +153,7 @@ const GencDanismanligi = () => {
               {/* For Parents */}
               <div>
                 <h2 className="text-3xl font-bold text-foreground mb-6">Ebeveynler İçin</h2>
-                <Card className="border border-border bg-gradient-to-br from-amber-500/10 to-orange-500/10">
+                <Card className="border border-border bg-gradient-to-br from-primary/10 to-accent-blue/10">
                   <CardContent className="p-8">
                     <p className="text-muted-foreground mb-4">
                       Ebeveynler olarak, çocuğunuzun bu zorlu dönemde size ihtiyacı var. Terapi sürecinde, 
@@ -169,7 +169,7 @@ const GencDanismanligi = () => {
               </div>
 
               {/* CTA */}
-              <div className="bg-gradient-to-br from-amber-500 via-amber-600 to-orange-500 rounded-2xl p-8 md:p-12 text-center">
+              <div className="bg-gradient-to-br from-primary via-primary-hover to-accent-blue rounded-2xl p-8 md:p-12 text-center">
                 <h2 className="text-3xl font-bold text-white mb-4">Gençler İçin Güvenli Bir Alan</h2>
                 <p className="text-white/90 mb-8 text-lg max-w-2xl mx-auto">
                   Her genç, kendini ifade edebileceği ve anlaşılacağı bir desteği hak ediyor. 
@@ -177,13 +177,8 @@ const GencDanismanligi = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link to="/iletisim">
-                    <Button size="lg" className="bg-white text-amber-600 hover:bg-white/90 h-12 px-8">
+                    <Button size="lg" className="bg-white text-primary hover:bg-white/90 h-12 px-8">
                       Randevu Al
-                    </Button>
-                  </Link>
-                  <Link to="/sss">
-                    <Button size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 h-12 px-8">
-                      Sıkça Sorulan Sorular
                     </Button>
                   </Link>
                 </div>
