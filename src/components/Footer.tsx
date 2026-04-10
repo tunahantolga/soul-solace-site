@@ -4,10 +4,10 @@ import { Mail, Phone, MapPin, Calendar, GraduationCap, Video, ExternalLink } fro
 const Footer = () => {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="container mx-auto px-6 py-12">
+      <div className="container mx-auto px-4 sm:px-6 py-12">
         <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <h3 className="text-xl font-semibold text-foreground">Dr. İbrahim Sarı</h3>
+            <h3 className="text-xl font-semibold text-foreground">İbrahim Sarı</h3>
             <p className="mt-1 text-sm text-muted-foreground">MD, MSc</p>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
               İntegratif psikoterapi yaklaşımıyla profesyonel ve güvenilir ruh sağlığı desteği sunuyoruz.
@@ -69,15 +69,15 @@ const Footer = () => {
               <h4 className="text-sm font-semibold tracking-wide text-foreground">İletişim & Randevu</h4>
               <div className="mt-4 space-y-3">
                 <a href="mailto:dribrahimsari@gmail.com" className="flex items-start gap-3 text-sm text-muted-foreground">
-                  <Mail className="h-4 w-4 text-primary" />
-                  <span className="break-all">dribrahimsari@gmail.com</span>
+                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  <span className="break-words">dribrahimsari@gmail.com</span>
                 </a>
                 <a href="tel:+905326098044" className="flex items-start gap-3 text-sm text-muted-foreground">
-                  <Phone className="h-4 w-4 text-primary" />
+                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                   <span>0532 609 80 44</span>
                 </a>
                 <div className="flex items-start gap-3 text-sm text-muted-foreground">
-                  <MapPin className="h-4 w-4 text-primary" />
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                   <span className="break-words">İstanbul, Türkiye</span>
                 </div>
               </div>
@@ -114,7 +114,7 @@ const Footer = () => {
 
         <div className="mt-10 border-t border-border pt-6">
           <p className="text-center text-xs text-muted-foreground md:text-left">
-            © {new Date().getFullYear()} Dr. İbrahim Sarı, MD, MSc. Tüm hakları saklıdır.
+            © {new Date().getFullYear()} İbrahim Sarı, MD, MSc. Tüm hakları saklıdır.
           </p>
         </div>
       </div>

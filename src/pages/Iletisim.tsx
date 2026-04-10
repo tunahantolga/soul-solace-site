@@ -12,7 +12,7 @@ const Iletisim = () => {
       <Header />
       
       <main className="pt-24 pb-16">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-5xl mx-auto">
             {/* Header */}
             <div className="text-center mb-12">
@@ -50,7 +50,7 @@ const Iletisim = () => {
                       <Mail className="h-5 w-5 text-muted-foreground mt-0.5" />
                       <div>
                         <p className="text-sm font-medium text-foreground">E-posta</p>
-                      <a href="mailto:dribrahimsari@gmail.com" className="text-sm break-all text-muted-foreground hover:text-foreground">
+                      <a href="mailto:dribrahimsari@gmail.com" className="inline-block text-sm break-words text-muted-foreground hover:text-foreground">
                         dribrahimsari@gmail.com
                       </a>
                       </div>
@@ -78,7 +78,7 @@ const Iletisim = () => {
                       <Clock className="h-5 w-5 text-muted-foreground mt-0.5" />
                       <div>
                         <p className="text-sm font-medium text-foreground">Çalışma Saatleri</p>
-                        <p className="text-sm text-muted-foreground">Pazartesi - Cumartesi: 08:00 - 19:00</p>
+                        <p className="text-sm text-muted-foreground">Pazartesi - Cumartesi: 09:00 - 20:00</p>
                       </div>
                     </div>
                   </CardContent>

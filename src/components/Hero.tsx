@@ -44,11 +44,11 @@ const Hero = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-background" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             {/* Badge */}
-            <div className="inline-flex max-w-[92vw] items-center px-3 sm:px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-3 shadow-lg">
-              <span className="text-xs sm:text-sm font-medium text-white/90 text-center leading-snug">
+            <div className="inline-flex w-fit max-w-full items-center px-3 sm:px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-3 shadow-lg">
+              <span className="text-[11px] sm:text-sm font-medium text-white/90 text-center leading-snug">
                 İntegratif Enstitü Psikolojik Danışmanlık Merkezi
               </span>
             </div>

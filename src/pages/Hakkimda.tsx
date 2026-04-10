@@ -11,7 +11,7 @@ const Hakkimda = () => {
       <Header />
       
       <main className="pt-24 pb-16">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-5xl mx-auto">
             {/* Header with Image */}
             <div className="mb-16">
@@ -21,7 +21,7 @@ const Hakkimda = () => {
                   <div className="relative h-[420px] sm:h-[520px] rounded-3xl overflow-hidden shadow-premium border border-border">
                     <img 
                       src={drIbrahimImage} 
-                      alt="Dr. İbrahim Sarı MD., MSc. - Psikoterapi Uzmanı"
+                      alt="İbrahim Sarı MD., MSc. - Psikoterapi Uzmanı"
                       className="w-full h-full object-cover object-top"
                     />
                     {/* Gradient overlay */}
@@ -38,7 +38,7 @@ const Hakkimda = () => {
                   </div>
                   
                   <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-tight">
-                    Dr. İbrahim Sarı
+                    İbrahim Sarı
                     <span className="block gradient-text text-2xl sm:text-3xl mt-2">MD, MSc</span>
                   </h1>
                   
@@ -100,7 +100,7 @@ const Hakkimda = () => {
               </div>
               <Card className="border border-border shadow-soft">
                 <CardContent className="p-6">
-                  <div className="grid md:grid-cols-2 gap-x-6 gap-y-3">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
                     {[
                       "İntegratif Psikoterapi Master Programı",
                       "John Clarkin - Aktarım Odaklı Psikoterapi",
@@ -166,7 +166,7 @@ const Hakkimda = () => {
               <Card className="h-full border border-border shadow-soft overflow-hidden">
                 <img
                   src={groupPhoto}
-                  alt="Dr. İbrahim Sarı eğitim çalışması grup fotoğrafı"
+                  alt="İbrahim Sarı eğitim çalışması grup fotoğrafı"
                   className="w-full h-full object-cover object-top"
                   loading="lazy"
                 />

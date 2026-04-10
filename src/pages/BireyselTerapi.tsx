@@ -131,14 +131,14 @@ const BireyselTerapi = () => {
               </div>
 
               {/* CTA */}
-              <div className="bg-gradient-to-br from-primary via-primary-hover to-accent-blue rounded-2xl p-8 md:p-12 text-center">
-                <h2 className="text-3xl font-bold text-white mb-4">İlk Adımı Atmaya Hazır Mısınız?</h2>
-                <p className="text-white/90 mb-8 text-lg max-w-2xl mx-auto">
+              <div className="bg-card border border-border rounded-2xl p-8 md:p-12 text-center shadow-soft">
+                <h2 className="text-3xl font-bold text-foreground mb-4">İlk Adımı Atmaya Hazır Mısınız?</h2>
+                <p className="text-muted-foreground mb-8 text-lg max-w-2xl mx-auto">
                   Size özel terapi sürecinizi birlikte planlayalım. Ücretsiz ön görüşme için hemen iletişime geçin.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link to="/iletisim">
-                    <Button size="lg" className="bg-white text-primary hover:bg-white/90 h-12 px-8">
+                    <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary-hover h-12 px-8">
                       Randevu Al
                     </Button>
                   </Link>

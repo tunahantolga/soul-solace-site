@@ -133,7 +133,7 @@ Blue palette for therapy and mental wellness
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -141,10 +141,14 @@ Blue palette for therapy and mental wellness
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
     line-height: 1.2;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.01em;
+  }
+
+  input, textarea, select, button {
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   .gradient-text {
@@ -249,5 +253,14 @@ Blue palette for therapy and mental wellness
   .scroll-slide-right.visible {
     opacity: 1;
     transform: translateX(0);
+  }
+
+  /* Tone down global heavy weights for a calmer, classic look */
+  .font-bold {
+    font-weight: 600 !important;
+  }
+
+  .font-semibold {
+    font-weight: 500 !important;
   }
 }

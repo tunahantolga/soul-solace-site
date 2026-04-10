@@ -1,5 +1,19 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { BookOpen, Users, Award, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { BookOpen, Users, Award, Sparkles, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import egitimCover from "@/assets/egitimler-cover.jpg";
+import egitimCover02 from "@/assets/egitimler-cover-02.jpg";
+import egitimCover03 from "@/assets/egitimler-cover-03.jpg";
+import tldpEgitim01 from "@/assets/tldp-egitim-01.jpg";
+import tldpEgitim02 from "@/assets/tldp-egitim-02.jpg";
+import tldpEgitim03 from "@/assets/tldp-egitim-03.jpg";
+import tldpEgitim04 from "@/assets/tldp-egitim-04.jpg";
+import norobilimArastirma01 from "@/assets/norobilim-arastirma-01.jpg";
+import norobilimArastirma02 from "@/assets/norobilim-arastirma-02.jpg";
+import norobilimArastirma03 from "@/assets/norobilim-arastirma-03.jpg";
+import norobilimArastirma04 from "@/assets/norobilim-arastirma-04.jpg";
+import norobilimArastirma05 from "@/assets/norobilim-arastirma-05.jpg";
 
 const programs = [
   {
@@ -17,6 +31,54 @@ const programs = [
 ];
 
 const Education = () => {
+  const norobilimPosterUrl = "/norobilim-arastirma-posteri.pdf";
+  const egitimPhotos = [
+    { src: egitimCover, alt: "Psikodinamik Psikoterapi Eğitimi afişi 1" },
+    { src: egitimCover02, alt: "Psikodinamik Psikoterapi Eğitimi afişi 2" },
+    { src: egitimCover03, alt: "Psikodinamik Psikoterapi Eğitimi afişi 3" },
+  ];
+  const tldpPhotos = [
+    { src: tldpEgitim01, alt: "TLDP eğitim fotoğrafı 1" },
+    { src: tldpEgitim02, alt: "TLDP eğitim fotoğrafı 2" },
+    { src: tldpEgitim03, alt: "TLDP eğitim fotoğrafı 3" },
+    { src: tldpEgitim04, alt: "TLDP eğitim fotoğrafı 4" },
+  ];
+  const norobilimPhotos = [
+    { src: norobilimArastirma01, alt: "Nörobilim araştırması fotoğrafı 1" },
+    { src: norobilimArastirma02, alt: "Nörobilim araştırması fotoğrafı 2" },
+    { src: norobilimArastirma03, alt: "Nörobilim araştırması fotoğrafı 3" },
+    { src: norobilimArastirma04, alt: "Nörobilim araştırması fotoğrafı 4" },
+    { src: norobilimArastirma05, alt: "Nörobilim araştırması gönüllülük afişi" },
+  ];
+
+  const [currentEgitimSlide, setCurrentEgitimSlide] = useState(0);
+  const [currentTldpSlide, setCurrentTldpSlide] = useState(0);
+  const [currentNorobilimSlide, setCurrentNorobilimSlide] = useState(0);
+
+  const prevEgitimSlide = () => {
+    setCurrentEgitimSlide((prev) => (prev - 1 + egitimPhotos.length) % egitimPhotos.length);
+  };
+
+  const nextEgitimSlide = () => {
+    setCurrentEgitimSlide((prev) => (prev + 1) % egitimPhotos.length);
+  };
+
+  const prevTldpSlide = () => {
+    setCurrentTldpSlide((prev) => (prev - 1 + tldpPhotos.length) % tldpPhotos.length);
+  };
+
+  const nextTldpSlide = () => {
+    setCurrentTldpSlide((prev) => (prev + 1) % tldpPhotos.length);
+  };
+
+  const prevNorobilimSlide = () => {
+    setCurrentNorobilimSlide((prev) => (prev - 1 + norobilimPhotos.length) % norobilimPhotos.length);
+  };
+
+  const nextNorobilimSlide = () => {
+    setCurrentNorobilimSlide((prev) => (prev + 1) % norobilimPhotos.length);
+  };
+
   return (
     <section className="py-16 md:py-20 bg-gradient-to-b from-secondary/30 to-background relative overflow-hidden">
       {/* Background decoration */}
@@ -92,6 +154,182 @@ const Education = () => {
             </Card>
           ))}
         </div>
+
+        <div className="max-w-4xl mx-auto mt-10">
+          <div className="text-center mb-6">
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
+              Aktarım Odaklı Psikoterapi Eğitimi (Kernberg Yaklaşımı)
+            </h3>
+          </div>
+
+          <Card className="overflow-hidden border border-border shadow-soft bg-card">
+            <div className="relative">
+              <img
+                src={egitimPhotos[currentEgitimSlide].src}
+                alt={egitimPhotos[currentEgitimSlide].alt}
+                className="w-full h-[280px] sm:h-[360px] md:h-[420px] object-contain bg-white"
+                loading="lazy"
+                decoding="async"
+              />
+
+              <button
+                type="button"
+                onClick={prevEgitimSlide}
+                className="absolute left-4 sm:left-3 top-1/2 -translate-y-1/2 h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black/55 text-white flex items-center justify-center hover:bg-black/70 transition"
+                aria-label="Önceki eğitim görseli"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+
+              <button
+                type="button"
+                onClick={nextEgitimSlide}
+                className="absolute right-4 sm:right-3 top-1/2 -translate-y-1/2 h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black/55 text-white flex items-center justify-center hover:bg-black/70 transition"
+                aria-label="Sonraki eğitim görseli"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+
+            <CardContent className="py-3 text-center text-sm text-muted-foreground">
+              {currentEgitimSlide + 1} / {egitimPhotos.length}
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="max-w-4xl mx-auto mt-10">
+          <div className="text-center mb-6">
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
+              Kısa Süreli Dinamik Psikoterapi (TLDP) Eğitimi
+            </h3>
+          </div>
+
+          <Card className="overflow-hidden border border-border shadow-soft bg-card">
+            <div className="relative">
+              <img
+                src={tldpPhotos[currentTldpSlide].src}
+                alt={tldpPhotos[currentTldpSlide].alt}
+                className="w-full h-[280px] sm:h-[360px] md:h-[420px] object-contain bg-white"
+                loading="lazy"
+                decoding="async"
+              />
+
+              <button
+                type="button"
+                onClick={prevTldpSlide}
+                className="absolute left-4 sm:left-3 top-1/2 -translate-y-1/2 h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black/55 text-white flex items-center justify-center hover:bg-black/70 transition"
+                aria-label="Önceki TLDP eğitim görseli"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+
+              <button
+                type="button"
+                onClick={nextTldpSlide}
+                className="absolute right-4 sm:right-3 top-1/2 -translate-y-1/2 h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black/55 text-white flex items-center justify-center hover:bg-black/70 transition"
+                aria-label="Sonraki TLDP eğitim görseli"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+
+            <CardContent className="py-3 text-center text-sm text-muted-foreground">
+              {currentTldpSlide + 1} / {tldpPhotos.length}
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="max-w-4xl mx-auto mt-10">
+          <div className="text-center mb-6">
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
+              Nörobilim Araştırması
+            </h3>
+          </div>
+
+          <Card className="overflow-hidden border border-border shadow-soft bg-card">
+            <div className="relative">
+              <img
+                src={norobilimPhotos[currentNorobilimSlide].src}
+                alt={norobilimPhotos[currentNorobilimSlide].alt}
+                className="w-full h-[280px] sm:h-[360px] md:h-[420px] object-contain bg-white"
+                loading="lazy"
+                decoding="async"
+              />
+
+              <button
+                type="button"
+                onClick={prevNorobilimSlide}
+                className="absolute left-4 sm:left-3 top-1/2 -translate-y-1/2 h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black/55 text-white flex items-center justify-center hover:bg-black/70 transition"
+                aria-label="Önceki nörobilim araştırması görseli"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+
+              <button
+                type="button"
+                onClick={nextNorobilimSlide}
+                className="absolute right-4 sm:right-3 top-1/2 -translate-y-1/2 h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black/55 text-white flex items-center justify-center hover:bg-black/70 transition"
+                aria-label="Sonraki nörobilim araştırması görseli"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+
+            <CardContent className="py-3 text-center text-sm text-muted-foreground">
+              {currentNorobilimSlide + 1} / {norobilimPhotos.length}
+            </CardContent>
+          </Card>
+
+          <Card className="mt-6 overflow-hidden border border-border shadow-soft bg-card">
+            <CardContent className="p-4 sm:p-6">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h4 className="text-lg sm:text-xl font-semibold text-foreground">
+                    Araştırma Posteri
+                  </h4>
+                  <p className="mt-1 text-sm sm:text-base text-muted-foreground">
+                    Effects of Frontal tDCS Applications on Cognitive Functions in Healthy Individuals
+                  </p>
+                </div>
+
+                <Button variant="outline" asChild>
+                  <a
+                    href={norobilimPosterUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2"
+                  >
+                    PDF&apos;i yeni sekmede aç
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+
+              <div className="mt-5 overflow-hidden rounded-xl border border-border bg-white">
+                <iframe
+                  src={`${norobilimPosterUrl}#view=FitH`}
+                  title="Nörobilim araştırması posteri"
+                  className="h-[420px] w-full sm:h-[620px] md:h-[920px]"
+                />
+              </div>
+
+              <div className="mt-5 rounded-xl border border-primary/15 bg-primary/5 p-4 sm:p-5">
+                <a
+                  href="https://www.tandfonline.com/doi/full/10.1080/13803395.2026.2654020"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-start gap-2 text-sm sm:text-base font-medium text-primary hover:text-primary-hover transition-colors"
+                >
+                  <span>
+                    Cognitive effects of dorsolateral versus medial prefrontal anodal transcranial direct current stimulation in healthy individuals
+                  </span>
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
       </div>
     </section>
   );

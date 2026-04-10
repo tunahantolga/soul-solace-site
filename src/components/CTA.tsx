@@ -57,7 +57,7 @@ const CTA = () => {
               <div className="w-10 h-10 bg-primary/10 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors border border-primary/20">
                 <Mail className="w-5 h-5 text-primary" />
               </div>
-              <span className="text-sm font-semibold break-all">dribrahimsari@gmail.com</span>
+              <span className="text-sm font-semibold break-words">dribrahimsari@gmail.com</span>
             </a>
           </div>
         </div>

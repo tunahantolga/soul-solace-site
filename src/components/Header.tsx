@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import siteLogo from "@/assets/integratif-logo-transparent.png";
 
 const Header = () => {
   const location = useLocation();
@@ -35,22 +36,14 @@ const Header = () => {
           : "bg-transparent border-b border-transparent shadow-none"
       }`}
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex w-auto md:w-56 items-center gap-3 group">
-            <div className="flex flex-col">
-              <span
-                className={`text-base font-bold group-hover:text-primary transition-colors leading-tight ${
-                  useSolidHeader ? "text-foreground" : "text-white"
-                }`}
-              >
-                Dr. İbrahim Sarı
-              </span>
-              <span className={`text-xs ${useSolidHeader ? "text-muted-foreground" : "text-white/75"}`}>
-                MD, MSc
-              </span>
-            </div>
+          <Link to="/" className="flex items-center md:w-48">
+            <img
+              src={siteLogo}
+              alt="İntegratif Enstitü logosu"
+              className={`h-9 w-auto object-contain transition-all ${useSolidHeader ? "" : "invert brightness-0"}`}
+            />
           </Link>
 
           {/* Navigation */}
@@ -74,7 +67,7 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="hidden md:block md:w-56" aria-hidden="true"></div>
+          <div className="hidden md:block md:w-48" aria-hidden="true"></div>
 
           <button
             type="button"
@@ -95,7 +88,7 @@ const Header = () => {
 
       {isMobileMenuOpen && (
         <div className="md:hidden border-t border-border bg-white/95 backdrop-blur-xl">
-          <nav className="container mx-auto px-6 py-4 flex flex-col gap-2">
+          <nav className="container mx-auto px-4 sm:px-6 py-4 flex flex-col gap-2">
             {navLinks.map((item) => (
               <Link
                 key={item.to}
