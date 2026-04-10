@@ -15,11 +15,9 @@ RUN npm run build
 FROM node:20-alpine AS runner
 WORKDIR /app
 
-COPY package.json package-lock.json ./
-RUN npm ci --omit=dev
-
 COPY --from=builder /app/dist ./dist
+RUN npm install -g serve
 
 EXPOSE 4173
 ENV NODE_ENV=production
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "4173"]
+CMD ["serve", "-s", "dist", "-l", "4173"]
