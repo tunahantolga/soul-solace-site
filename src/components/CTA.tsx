@@ -41,7 +41,9 @@ const CTA = () => {
           {/* Contact Options */}
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
             <a 
-              href="tel:+905326098044"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 text-foreground hover:text-primary transition-colors group"
             >
               <div className="w-10 h-10 bg-primary/10 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors border border-primary/20">

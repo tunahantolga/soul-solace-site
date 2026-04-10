@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Calendar, GraduationCap, Video, ExternalLink } from "lucide-react";
 
 const Footer = () => {
+  const whatsappUrl =
+    "https://wa.me/905326098044?text=Merhaba%2C%20ileti%C5%9Fime%20ge%C3%A7mek%20istiyorum.";
+
   return (
     <footer className="border-t border-border bg-background">
       <div className="container mx-auto px-4 sm:px-6 py-12">
@@ -72,7 +75,12 @@ const Footer = () => {
                   <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                   <span className="break-words">dribrahimsari@gmail.com</span>
                 </a>
-                <a href="tel:+905326098044" className="flex items-start gap-3 text-sm text-muted-foreground">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 text-sm text-muted-foreground"
+                >
                   <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                   <span>0532 609 80 44</span>
                 </a>
