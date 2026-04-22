@@ -28,7 +28,7 @@ const Footer = () => {
                 <ExternalLink className="ml-auto h-3.5 w-3.5 text-primary" />
               </a>
               <a
-                href="https://www.youtube.com/@dribrahimsari"
+                href="https://www.youtube.com/@ibrahimsar-integratifpsiko9945"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-xl border border-primary/15 bg-primary/5 px-4 py-3 text-sm text-foreground transition-colors hover:bg-primary/10"

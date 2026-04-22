@@ -5,6 +5,7 @@ import { BookOpen, Users, Award, Sparkles, ChevronLeft, ChevronRight, ExternalLi
 import egitimCover from "@/assets/egitimler-cover.jpg";
 import egitimCover02 from "@/assets/egitimler-cover-02.jpg";
 import egitimCover03 from "@/assets/egitimler-cover-03.jpg";
+import egitimCover04 from "@/assets/egitimler-cover-04.jpg";
 import tldpEgitim01 from "@/assets/tldp-egitim-01.jpg";
 import tldpEgitim02 from "@/assets/tldp-egitim-02.jpg";
 import tldpEgitim03 from "@/assets/tldp-egitim-03.jpg";
@@ -33,6 +34,7 @@ const programs = [
 const Education = () => {
   const norobilimPosterUrl = "/norobilim-arastirma-posteri.pdf";
   const egitimPhotos = [
+    { src: egitimCover04, alt: "Psikodinamik Psikoterapi Eğitimi afişi 4" },
     { src: egitimCover, alt: "Psikodinamik Psikoterapi Eğitimi afişi 1" },
     { src: egitimCover02, alt: "Psikodinamik Psikoterapi Eğitimi afişi 2" },
     { src: egitimCover03, alt: "Psikodinamik Psikoterapi Eğitimi afişi 3" },
