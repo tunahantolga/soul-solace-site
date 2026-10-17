@@ -16,7 +16,7 @@ interface Props {
 
 const { title, description, schema = [], noindex = false } = Astro.props;
 
-const pathname = Astro.url.pathname.replace(/\.html$/, "").replace(/\/index$/, "/") || "/";
+const pathname = Astro.url.pathname.replace(/index\.html$/, "") || "/";
 const canonical = new URL(pathname, SITE.url).href;
 const ogImage = new URL("/og-image.jpg", SITE.url).href;
 
@@ -48,7 +48,7 @@ const jsonLd = {
       name: SITE.person,
       honorificSuffix: SITE.credentials,
       jobTitle: "Psikoterapist",
-      url: `${SITE.url}/hakkimda`,
+      url: `${SITE.url}/hakkimda/`,
       worksFor: { "@id": `${SITE.url}/#business` },
       sameAs: SITE.sameAs,
     },

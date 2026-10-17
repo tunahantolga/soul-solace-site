@@ -5,10 +5,11 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://integratifenstitu.com",
-  // Emit /hakkimda.html instead of /hakkimda/index.html so URLs stay
-  // slash-less on GitHub Pages and match the canonical links.
-  build: { format: "file" },
-  trailingSlash: "never",
+  // Every page is emitted as <route>/index.html and linked as /<route>/, which
+  // every static host (Outplane/serve, GitHub Pages, nginx, Vercel) serves
+  // directly without relying on clean-URL rewrites.
+  build: { format: "directory" },
+  trailingSlash: "always",
   integrations: [react(), sitemap()],
   server: { host: true, port: 8080 },
 });

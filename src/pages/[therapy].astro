@@ -24,7 +24,7 @@ const icons: Record<TherapyIcon, typeof Brain> = {
   smile: Smile,
 };
 
-const others = THERAPIES.filter((t) => t.href !== `/${therapy.slug}`);
+const others = THERAPIES.filter((t) => t.href !== `/${therapy.slug}/`);
 
 const schema = [
   {
@@ -40,7 +40,7 @@ const schema = [
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: `${SITE.url}/` },
       { "@type": "ListItem", position: 2, name: "Terapiler", item: `${SITE.url}/#hizmetler` },
-      { "@type": "ListItem", position: 3, name: therapy.eyebrow, item: `${SITE.url}/${therapy.slug}` },
+      { "@type": "ListItem", position: 3, name: therapy.eyebrow, item: `${SITE.url}/${therapy.slug}/` },
     ],
   },
 ];

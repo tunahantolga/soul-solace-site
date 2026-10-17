@@ -30,25 +30,25 @@ export const whatsappUrl = (text = "Merhaba, randevu almak istiyorum.") =>
 
 export const THERAPIES = [
   {
-    href: "/bireysel-terapi",
+    href: "/bireysel-terapi/",
     title: "Bireysel Terapi",
     description: "Anksiyete, depresyon ve yaşam zorlukları için psikodinamik temelli, kişiye özel terapi.",
   },
   {
-    href: "/cift-terapisi",
+    href: "/cift-terapisi/",
     title: "Çift Terapisi",
     description: "İletişimi güçlendirmek ve ilişki zorluklarını birlikte aşmak için destek.",
   },
   {
-    href: "/aile-terapisi",
+    href: "/aile-terapisi/",
     title: "Aile Terapisi",
     description: "Aile içi çatışmaları anlamak ve daha sağlıklı ilişkiler kurmak için.",
   },
 ] as const;
 
 export const NAV = [
-  { href: "/hakkimda", label: "Hakkımda" },
+  { href: "/hakkimda/", label: "Hakkımda" },
   { href: "/#hizmetler", label: "Terapiler", children: THERAPIES },
-  { href: "/psikodinamik-psikoterapi-egitimi", label: "Eğitim Programı" },
-  { href: "/iletisim", label: "İletişim" },
+  { href: "/psikodinamik-psikoterapi-egitimi/", label: "Eğitim Programı" },
+  { href: "/iletisim/", label: "İletişim" },
 ] as const;

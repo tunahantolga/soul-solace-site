@@ -6,6 +6,13 @@ export type ResponsiveImage = {
 };
 
 export type GalleryPhoto = {
-  image: ResponsiveImage;
+  thumb: ResponsiveImage;
+  full: ResponsiveImage;
   alt: string;
+};
+
+export type GalleryGroup = {
+  id: string;
+  title: string;
+  photos: GalleryPhoto[];
 };

@@ -23,6 +23,8 @@ npm run dev        # http://localhost:8080
 npm run lint       # ESLint
 npm run typecheck  # astro check (TypeScript + .astro dosyaları)
 npm run build      # dist/ klasörüne statik site
+npm run check:links     # dist/ içindeki tüm iç linkleri, görselleri ve #çapaları doğrular
+npm run check:external  # dış linkleri de dener (ağ erişimi gerekir)
 npm run preview    # build çıktısını yerelde sun
 ```
 
@@ -48,7 +50,15 @@ Yeni sayfa eklemek için `src/pages/` altına bir `.astro` dosyası oluşturun v
 
 ## Yayına alma
 
-`main` dalına her push'ta GitHub Actions lint, typecheck ve build çalıştırır ve siteyi GitHub
-Pages'e yayınlar. Pull request'lerde aynı kontroller çalışır, yayın yapılmaz.
+**Outplane (canlı):** Uygulama repodaki `Dockerfile` ile build edilir; `main` dalına her push yeni bir
+deploy başlatır. İmaj build sırasında link denetimini de çalıştırır, kırık link varsa deploy olmaz.
+Sunucu `serve` ile `$PORT` (varsayılan 4173) üzerinden yayın yapar.
 
-Alternatif olarak Docker ile: `docker build -t integratif-site . && docker run -p 4173:4173 integratif-site`.
+**GitHub Actions:** Her PR ve `main` push'unda lint, typecheck, build ve link denetimi çalışır;
+`main` push'unda site ayrıca GitHub Pages'e yayınlanır.
+
+Sayfalar `/<sayfa>/index.html` olarak üretilir ve linkler `/<sayfa>/` biçimindedir; bu yüzden
+hiçbir barındırma servisinde ek yönlendirme ayarı gerekmez. Vercel'in otomatik deploy'u
+`vercel.json` ile kapatılmıştır.
+
+Yerelde Docker ile: `docker build -t integratif-site . && docker run -p 4173:4173 integratif-site`

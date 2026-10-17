@@ -1,11 +1,11 @@
 ---
 import { ArrowRight, Award, BookOpen, ExternalLink, FileText, Users } from "lucide-react";
-import Gallery from "@/components/Gallery";
-import type { GalleryPhoto } from "@/lib/types";
+import GalleryTabs from "@/components/GalleryTabs";
+import type { GalleryGroup } from "@/lib/types";
 import { programFacts } from "@/data/egitim-programi";
 
 interface Props {
-  galleries: { title: string; label: string; photos: GalleryPhoto[] }[];
+  galleries: GalleryGroup[];
 }
 
 const { galleries } = Astro.props;
@@ -35,7 +35,7 @@ const programs = [
     </div>
 
     <a
-      href="/psikodinamik-psikoterapi-egitimi"
+      href="/psikodinamik-psikoterapi-egitimi/"
       class="reveal group relative mt-14 block overflow-hidden rounded-[2rem] bg-foreground p-8 text-white shadow-premium sm:p-12"
     >
       <div class="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-primary/50 blur-3xl" aria-hidden="true"></div>
@@ -86,15 +86,17 @@ const programs = [
       }
     </div>
 
-    <div class="mt-20 grid gap-x-6 gap-y-12 lg:grid-cols-2">
-      {
-        galleries.map((g) => (
-          <div class="reveal">
-            <h3 class="mb-4 text-xl sm:text-2xl">{g.title}</h3>
-            <Gallery client:visible photos={g.photos} label={g.label} />
-          </div>
-        ))
-      }
+    <div class="mt-24">
+      <div class="reveal flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="eyebrow">Galeri</p>
+          <h3 class="mt-4 text-3xl sm:text-4xl">Eğitimlerden ve seminerlerden kareler</h3>
+        </div>
+        <p class="max-w-sm text-muted-foreground">Görselleri büyütmek için üzerine dokunun.</p>
+      </div>
+      <div class="mt-10">
+        <GalleryTabs client:visible groups={galleries} />
+      </div>
     </div>
 
     <div class="reveal card-surface mt-12 flex flex-col gap-6 p-8 md:flex-row md:items-center">

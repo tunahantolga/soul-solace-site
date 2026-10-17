@@ -1,7 +1,7 @@
 ---
 import { Picture } from "astro:assets";
 import { Award, Brain, Stethoscope, Star, ArrowRight } from "lucide-react";
-import portrait from "@/assets/dr-ibrahim-main-optimized.jpg";
+import portrait from "@/assets/ibrahim-sari-cutout.png";
 import { SITE, whatsappUrl } from "@/config/site";
 
 const credentials = [
@@ -52,27 +52,36 @@ const credentials = [
       </ul>
     </div>
 
-    <div class="relative mx-auto w-full max-w-md lg:col-span-5">
-      <div class="absolute -inset-4 -z-10 rotate-3 rounded-[2.5rem] bg-primary/10" aria-hidden="true"></div>
-      <Picture
-        src={portrait}
-        formats={["avif", "webp"]}
-        widths={[420, 640, 900]}
-        sizes="(min-width: 1024px) 28rem, 90vw"
-        alt="Psikoterapist İbrahim Sarı"
-        class="aspect-[4/5] w-full rounded-[2rem] object-cover object-top shadow-premium"
-        loading="eager"
-        fetchpriority="high"
-      />
-      <a
-        href="#yorumlar"
-        class="card-surface absolute -bottom-6 -left-4 flex items-center gap-3 px-5 py-4 transition-transform hover:-translate-y-0.5 sm:-left-10"
-      >
-        <span class="flex gap-0.5" aria-hidden="true">
-          {[0, 1, 2, 3, 4].map(() => <Star className="h-4 w-4 fill-amber-400 text-amber-400" />)}
-        </span>
-        <span class="text-sm font-semibold text-foreground">Danışan yorumları</span>
-      </a>
+    <div class="relative mx-auto w-full max-w-[24rem] sm:max-w-[26rem] lg:col-span-5 lg:max-w-none">
+      <div class="relative mx-auto aspect-[4/5] w-full max-w-[26rem]">
+        <div class="absolute inset-x-0 bottom-0 top-[14%] overflow-hidden rounded-t-full rounded-b-[2rem] bg-gradient-to-b from-primary-soft via-primary-light to-sand shadow-premium ring-1 ring-primary/10" aria-hidden="true">
+          <div class="absolute -right-10 top-10 h-40 w-40 rounded-full border border-primary/15"></div>
+          <div class="absolute -left-8 bottom-24 h-24 w-24 rounded-full bg-white/50 blur-xl"></div>
+        </div>
+        <Picture
+          src={portrait}
+          formats={["avif", "webp"]}
+          widths={[380, 548]}
+          sizes="(min-width: 1024px) 26rem, 80vw"
+          alt="Psikoterapist İbrahim Sarı"
+          class="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_20px_30px_rgba(20,36,58,0.18)]"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div class="card-surface absolute -left-2 top-[22%] hidden px-4 py-3 sm:block lg:-left-10">
+          <p class="font-display text-lg leading-none text-foreground">{SITE.credentials}</p>
+          <p class="mt-1 text-xs text-muted-foreground">Psikoterapist</p>
+        </div>
+        <a
+          href="#yorumlar"
+          class="card-surface absolute -bottom-5 -right-2 flex items-center gap-3 px-5 py-4 transition-transform hover:-translate-y-0.5 lg:-right-8"
+        >
+          <span class="flex gap-0.5" aria-hidden="true">
+            {[0, 1, 2, 3, 4].map(() => <Star className="h-4 w-4 fill-amber-400 text-amber-400" />)}
+          </span>
+          <span class="text-sm font-semibold text-foreground">Danışan yorumları</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>

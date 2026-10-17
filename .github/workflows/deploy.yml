@@ -39,6 +39,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check internal links
+        run: npm run check:links
+
+      - name: Check external links
+        run: npm run check:external
+        continue-on-error: true
+
       - name: Setup Pages
         if: github.event_name == 'push'
         uses: actions/configure-pages@v4

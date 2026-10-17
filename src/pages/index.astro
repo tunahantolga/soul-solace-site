@@ -25,7 +25,13 @@ import norobilim04 from "@/assets/norobilim-arastirma-04.jpg";
 import norobilim05 from "@/assets/norobilim-arastirma-05.jpg";
 
 const gallery = (photos: [ImageMetadata, string][]) =>
-  Promise.all(photos.map(async ([image, alt]) => ({ image: await responsiveImage(image), alt })));
+  Promise.all(
+    photos.map(async ([image, alt]) => ({
+      thumb: await responsiveImage(image, [320, 640]),
+      full: await responsiveImage(image, [960, 1600]),
+      alt,
+    })),
+  );
 
 const egitimPhotos = await gallery([
   [egitimCover04, "Psikodinamik Psikoterapi Eğitimi afişi 4"],
@@ -68,10 +74,10 @@ const seminerPhotos = await gallery(
     <Approach />
     <Education
       galleries={[
-        { title: "Aktarım Odaklı Psikoterapi Eğitimi (Kernberg Yaklaşımı)", label: "eğitim", photos: egitimPhotos },
-        { title: "Kısa Süreli Dinamik Psikoterapi (TLDP) Eğitimi", label: "TLDP eğitim", photos: tldpPhotos },
-        { title: "Nörobilim Araştırması", label: "nörobilim araştırması", photos: norobilimPhotos },
-        { title: "Seminerler", label: "seminer", photos: seminerPhotos },
+        { id: "kernberg", title: "Aktarım Odaklı Psikoterapi", photos: egitimPhotos },
+        { id: "tldp", title: "TLDP Eğitimi", photos: tldpPhotos },
+        { id: "norobilim", title: "Nörobilim Araştırması", photos: norobilimPhotos },
+        { id: "seminerler", title: "Seminerler", photos: seminerPhotos },
       ]}
     />
     <Online />
