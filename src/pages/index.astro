@@ -1,0 +1,87 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/home/Hero.astro";
+import Services from "@/components/home/Services.astro";
+import Approach from "@/components/home/Approach.astro";
+import Education from "@/components/home/Education.astro";
+import Online from "@/components/home/Online.astro";
+import Testimonials from "@/components/home/Testimonials.astro";
+import CTA from "@/components/CTA.astro";
+import { responsiveImage } from "@/lib/images";
+import type { ImageMetadata } from "astro";
+
+import egitimCover from "@/assets/egitimler-cover.jpg";
+import egitimCover02 from "@/assets/egitimler-cover-02.jpg";
+import egitimCover03 from "@/assets/egitimler-cover-03.jpg";
+import egitimCover04 from "@/assets/egitimler-cover-04.jpg";
+import tldpEgitim01 from "@/assets/tldp-egitim-01.jpg";
+import tldpEgitim02 from "@/assets/tldp-egitim-02.jpg";
+import tldpEgitim03 from "@/assets/tldp-egitim-03.jpg";
+import tldpEgitim04 from "@/assets/tldp-egitim-04.jpg";
+import norobilim01 from "@/assets/norobilim-arastirma-01.jpg";
+import norobilim02 from "@/assets/norobilim-arastirma-02.jpg";
+import norobilim03 from "@/assets/norobilim-arastirma-03.jpg";
+import norobilim04 from "@/assets/norobilim-arastirma-04.jpg";
+import norobilim05 from "@/assets/norobilim-arastirma-05.jpg";
+
+const gallery = (photos: [ImageMetadata, string][]) =>
+  Promise.all(
+    photos.map(async ([image, alt]) => ({
+      thumb: await responsiveImage(image, [320, 640]),
+      full: await responsiveImage(image, [960, 1600]),
+      alt,
+    })),
+  );
+
+const egitimPhotos = await gallery([
+  [egitimCover04, "Psikodinamik Psikoterapi Eğitimi afişi 4"],
+  [egitimCover, "Psikodinamik Psikoterapi Eğitimi afişi 1"],
+  [egitimCover02, "Psikodinamik Psikoterapi Eğitimi afişi 2"],
+  [egitimCover03, "Psikodinamik Psikoterapi Eğitimi afişi 3"],
+]);
+const tldpPhotos = await gallery([
+  [tldpEgitim01, "TLDP eğitim fotoğrafı 1"],
+  [tldpEgitim02, "TLDP eğitim fotoğrafı 2"],
+  [tldpEgitim03, "TLDP eğitim fotoğrafı 3"],
+  [tldpEgitim04, "TLDP eğitim fotoğrafı 4"],
+]);
+const norobilimPhotos = await gallery([
+  [norobilim01, "Nörobilim araştırması fotoğrafı 1"],
+  [norobilim02, "Nörobilim araştırması fotoğrafı 2"],
+  [norobilim03, "Nörobilim araştırması fotoğrafı 3"],
+  [norobilim04, "Nörobilim araştırması fotoğrafı 4"],
+  [norobilim05, "Nörobilim araştırması gönüllülük afişi"],
+]);
+
+const seminerModules = import.meta.glob<{ default: ImageMetadata }>("/src/assets/pro-gelisim-album-*.jpg", {
+  eager: true,
+});
+const seminerPhotos = await gallery(
+  Object.entries(seminerModules)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .filter(([path]) => !path.includes("pro-gelisim-album-01.jpg"))
+    .map(([, mod], index): [ImageMetadata, string] => [mod.default, `İntegratif Enstitü seminer görseli ${index + 1}`]),
+);
+---
+
+<BaseLayout
+  title="İbrahim Sarı | İntegratif Enstitü Psikolojik Danışmanlık Merkezi"
+  description="Psikoterapist İbrahim Sarı, MD, PhD ile bireysel terapi, çift terapisi ve aile terapisi. İntegratif Enstitü Psikolojik Danışmanlık Merkezi, İstanbul: randevu ve iletişim bilgileri."
+>
+  <main>
+    <Hero />
+    <Services />
+    <Approach />
+    <Education
+      galleries={[
+        { id: "kernberg", title: "Aktarım Odaklı Psikoterapi", photos: egitimPhotos },
+        { id: "tldp", title: "TLDP Eğitimi", photos: tldpPhotos },
+        { id: "norobilim", title: "Nörobilim Araştırması", photos: norobilimPhotos },
+        { id: "seminerler", title: "Seminerler", photos: seminerPhotos },
+      ]}
+    />
+    <Online />
+    <Testimonials />
+    <CTA />
+  </main>
+</BaseLayout>

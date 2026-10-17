@@ -1,0 +1,226 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import { BookOpen, CalendarDays, ChevronDown, MonitorPlay, Quote, Users } from "lucide-react";
+import { SITE } from "@/config/site";
+import { certificates, extraCourses, modules, programFacts, supervision } from "@/data/egitim-programi";
+import { studentTestimonials } from "@/data/student-testimonials";
+
+const factIcons = [CalendarDays, Users, MonitorPlay, BookOpen];
+const clinicalCount = modules.reduce((n, m) => n + m.clinical.length, 0);
+const generalCount = modules.reduce((n, m) => n + m.general.length, 0);
+
+const whatsappUrl = `https://wa.me/${SITE.phone.replace("+", "")}?text=${encodeURIComponent(
+  "Merhaba, Psikodinamik Psikoterapi Eğitim Programı hakkında bilgi almak istiyorum.",
+)}`;
+
+const course = {
+  "@type": "Course",
+  name: "Psikodinamik Psikoterapi Eğitim Programı",
+  description:
+    "10 ay teorik eğitim ve 10 ay grup süpervizyonundan oluşan online psikodinamik psikoterapi eğitimi.",
+  inLanguage: "tr",
+  provider: { "@id": `${SITE.url}/#business` },
+  instructor: { "@id": `${SITE.url}/#person` },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    courseMode: "online",
+    courseSchedule: { "@type": "Schedule", repeatFrequency: "P1M", duration: "P10M" },
+  },
+};
+---
+
+<BaseLayout
+  title="Psikodinamik Psikoterapi Eğitim Programı | İbrahim Sarı"
+  description="10 ay teorik eğitim ve 10 ay süpervizyondan oluşan online Psikodinamik Psikoterapi Eğitim Programı: 10 modülde klinik ve genel dersler, grup süpervizyonu, uygulayıcı sertifikası."
+  schema={[course]}
+>
+  <main class="pb-4">
+    <PageHero
+      eyebrow="Eğitim Programı"
+      title="Psikodinamik Psikoterapi Eğitim Programı"
+      lead="İntegratif Enstitü bünyesinde İbrahim Sarı ve eğitmen kadrosu tarafından yürütülen program; gelişimsel nesne ilişkilerinden kişilik örgütlenmesine, aktarımın yorumlanmasından vaka formülasyonuna uzanan kuramsal ve klinik bir müfredatı, düzenli grup süpervizyonuyla birleştirir."
+      crumbs={[{ label: "Eğitim Programı" }]}
+    >
+      <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-primary h-14 px-8 text-base">Bilgi ve kayıt</a>
+        <a href="#mufredat" class="btn-ghost h-14 px-8 text-base">Müfredatı inceleyin</a>
+      </div>
+    </PageHero>
+
+    <section class="pb-14">
+      <div class="container mx-auto px-4 sm:px-6">
+        <dl class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            programFacts.map((fact, i) => {
+              const Icon = factIcons[i];
+              return (
+                <div class="rounded-2xl border border-border bg-card p-5 shadow-soft">
+                  <Icon className="mb-3 h-6 w-6 text-primary" />
+                  <dt class="text-sm font-semibold text-foreground">{fact.label}</dt>
+                  <dd class="mt-1 text-sm leading-relaxed text-muted-foreground">{fact.value}</dd>
+                </div>
+              );
+            })
+          }
+        </dl>
+      </div>
+    </section>
+
+    <section class="pb-14">
+      <div class="container mx-auto grid max-w-5xl gap-6 px-4 sm:px-6 md:grid-cols-2">
+        <div class="rounded-2xl border border-border bg-card p-6 shadow-soft sm:p-8">
+          <h2 class="mb-4 text-2xl font-bold text-foreground">Süpervizyon Süreci</h2>
+          <ul class="space-y-3 text-muted-foreground">
+            {
+              supervision.map((item) => (
+                <li class="flex gap-3">
+                  <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-border bg-card p-6 shadow-soft sm:p-8">
+          <h2 class="mb-4 text-2xl font-bold text-foreground">Sertifikalar</h2>
+          <div class="space-y-4">
+            {
+              certificates.map((cert) => (
+                <div class="rounded-xl border border-primary/15 bg-primary/5 p-4">
+                  <h3 class="font-semibold text-foreground">{cert.title}</h3>
+                  <p class="mt-1 text-sm text-muted-foreground">{cert.description}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-secondary/30 py-14" aria-labelledby="mufredat">
+      <div class="container mx-auto max-w-4xl px-4 sm:px-6">
+        <div class="mb-10 text-center">
+          <h2 id="mufredat" class="mb-3 text-3xl font-bold text-foreground sm:text-4xl">Müfredat</h2>
+          <p class="text-muted-foreground">
+            10 modülde {clinicalCount} klinik ve {generalCount} genel ders. Modül ayrıntılarını görmek için başlığa
+            dokunun.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          {
+            modules.map((mod, i) => (
+              <details class="group rounded-2xl border border-border bg-card shadow-soft" open={i === 0}>
+                <summary class="flex cursor-pointer list-none items-center gap-4 p-5 [&::-webkit-details-marker]:hidden">
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-sm font-bold text-primary">
+                    {i + 1}
+                  </span>
+                  <span class="flex-1">
+                    <span class="block font-semibold text-foreground">Modül {i + 1}</span>
+                    <span class="block text-sm text-muted-foreground">
+                      {mod.clinical.length} klinik · {mod.general.length} genel ders
+                    </span>
+                  </span>
+                  <ChevronDown className="h-5 w-5 text-muted-foreground transition-transform group-open:rotate-180" />
+                </summary>
+                <div class="grid gap-6 border-t border-border p-5 sm:grid-cols-2">
+                  <div>
+                    <h3 class="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Klinik Dersler</h3>
+                    <ol class="space-y-2 text-sm text-foreground">
+                      {mod.clinical.map((title, j) => (
+                        <li class="flex gap-3">
+                          <span class="w-8 shrink-0 tabular-nums text-muted-foreground">
+                            {i + 1}.{j + 1}
+                          </span>
+                          <span>{title}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                  <div>
+                    <h3 class="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">Genel Dersler</h3>
+                    <ul class="space-y-2 text-sm text-foreground">
+                      {mod.general.map((title) => (
+                        <li class="flex gap-3">
+                          <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" aria-hidden="true" />
+                          <span>{title}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </details>
+            ))
+          }
+        </div>
+
+        <div class="mt-10 rounded-2xl border border-border bg-card p-6 shadow-soft sm:p-8">
+          <h3 class="mb-1 text-xl font-bold text-foreground">Ek Dersler</h3>
+          <p class="mb-5 text-sm text-muted-foreground">Programa eşlik eden kuramsal çerçeve dersleri</p>
+          <ul class="grid gap-3 sm:grid-cols-2">
+            {
+              extraCourses.map((c) => (
+                <li class="rounded-xl bg-secondary/40 p-3">
+                  <span class="block text-sm font-semibold text-foreground">{c.title}</span>
+                  <span class="block text-xs text-muted-foreground">{c.names}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14" aria-labelledby="yorumlar">
+      <div class="container mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="mb-10 text-center">
+          <h2 id="yorumlar" class="mb-3 text-3xl font-bold text-foreground sm:text-4xl">Katılımcılar Ne Diyor?</h2>
+          <p class="text-muted-foreground">Programa katılan meslektaşlarımızın değerlendirmeleri</p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          {
+            studentTestimonials.map((t) => (
+              <figure class="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-soft">
+                <Quote className="mb-4 h-7 w-7 text-primary/70" />
+                <blockquote class="flex-1 text-sm leading-relaxed text-muted-foreground">“{t.comment}”</blockquote>
+                <figcaption class="mt-5 border-t border-border pt-4 text-sm font-semibold text-foreground">
+                  {t.name}
+                  <span class="block text-xs font-normal text-muted-foreground">Eğitim katılımcısı</span>
+                </figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-4">
+      <div class="container mx-auto max-w-4xl px-4 sm:px-6">
+        <div class="rounded-3xl bg-gradient-to-br from-primary to-accent-blue p-8 text-center text-white shadow-premium sm:p-12">
+          <h2 class="mb-3 text-2xl font-bold sm:text-3xl">Bilgi ve Kayıt</h2>
+          <p class="mx-auto mb-8 max-w-2xl text-white/85">
+            Dönem tarihleri, ücret ve kayıt koşulları hakkında bilgi almak için bize WhatsApp veya e-posta ile
+            ulaşabilirsiniz.
+          </p>
+          <div class="flex flex-col justify-center gap-3 sm:flex-row">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex h-12 items-center justify-center rounded-md bg-white px-8 font-medium text-primary transition hover:bg-white/90"
+            >
+              WhatsApp ile yazın
+            </a>
+            <a
+              href={`mailto:${SITE.email}?subject=${encodeURIComponent("Psikodinamik Psikoterapi Eğitim Programı")}`}
+              class="inline-flex h-12 items-center justify-center rounded-md border border-white/40 px-8 font-medium text-white transition hover:bg-white/10"
+            >
+              E-posta gönderin
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

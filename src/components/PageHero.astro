@@ -1,0 +1,45 @@
+---
+import { ChevronRight } from "lucide-react";
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead?: string;
+  /** Breadcrumb trail after "Ana Sayfa"; the last item is the current page. */
+  crumbs: { label: string; href?: string }[];
+}
+
+const { eyebrow, title, lead, crumbs } = Astro.props;
+---
+
+<section class="relative overflow-hidden pt-28 md:pt-36">
+  <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+    <div class="absolute -right-40 -top-40 h-[32rem] w-[32rem] rounded-full bg-primary-soft blur-3xl"></div>
+    <div class="absolute -left-40 top-10 h-[24rem] w-[24rem] rounded-full bg-sand blur-3xl"></div>
+  </div>
+  <div class="container pb-14 md:pb-20">
+    <nav aria-label="Sayfa konumu">
+      <ol class="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
+        <li><a href="/" class="hover:text-foreground">Ana Sayfa</a></li>
+        {
+          crumbs.map((c, i) => (
+            <li class="flex items-center gap-1.5">
+              <ChevronRight className="h-3.5 w-3.5" />
+              {c.href && i < crumbs.length - 1 ? (
+                <a href={c.href} class="hover:text-foreground">{c.label}</a>
+              ) : (
+                <span aria-current={i === crumbs.length - 1 ? "page" : undefined} class="text-foreground">{c.label}</span>
+              )}
+            </li>
+          ))
+        }
+      </ol>
+    </nav>
+    <div class="mt-10 max-w-4xl">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1 class="mt-5 text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">{title}</h1>
+      {lead && <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">{lead}</p>}
+      <slot />
+    </div>
+  </div>
+</section>

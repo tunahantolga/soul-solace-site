@@ -1,0 +1,87 @@
+---
+import { Picture } from "astro:assets";
+import { Award, Brain, Stethoscope, Star, ArrowRight } from "lucide-react";
+import portrait from "@/assets/ibrahim-sari-cutout.png";
+import { SITE, whatsappUrl } from "@/config/site";
+
+const credentials = [
+  { icon: Stethoscope, label: "İstanbul Üniversitesi Tıp Fakültesi" },
+  { icon: Award, label: "TLDP Süpervizörü" },
+  { icon: Brain, label: "Nörobilim Doktorası" },
+];
+---
+
+<section class="relative overflow-hidden pt-28 md:pt-36">
+  <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+    <div class="absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full bg-primary-soft blur-3xl"></div>
+    <div class="absolute -left-32 top-1/3 h-[28rem] w-[28rem] rounded-full bg-sand blur-3xl"></div>
+  </div>
+
+  <div class="container grid items-center gap-14 pb-20 md:pb-28 lg:grid-cols-12">
+    <div class="lg:col-span-7">
+      <p class="eyebrow">{SITE.name}</p>
+      <h1 class="mt-6 text-5xl leading-[1.02] sm:text-6xl lg:text-7xl">
+        Psikoterapist<br />
+        İbrahim Sarı
+      </h1>
+      <p class="mt-4 font-display text-2xl italic text-primary sm:text-3xl">{SITE.credentials}</p>
+      <p class="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
+        Psikanalitik ve psikodinamik temelli, integratif bir yaklaşımla bireysel, çift ve aile terapisi. Güvenli bir
+        alanda kendinizi anlamanız ve değişim için yanınızdayız.
+      </p>
+
+      <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+        <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" class="btn-primary h-14 px-8 text-base">
+          Randevu Al
+          <ArrowRight className="h-4 w-4" />
+        </a>
+        <a href="#hizmetler" class="btn-ghost h-14 px-8 text-base">Terapileri İnceleyin</a>
+      </div>
+
+      <ul class="mt-12 grid gap-4 border-t border-border pt-8 sm:grid-cols-3">
+        {
+          credentials.map(({ icon: Icon, label }) => (
+            <li class="flex items-center gap-3 text-sm font-medium text-foreground">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-soft">
+                <Icon className="h-[1.1rem] w-[1.1rem] text-primary" />
+              </span>
+              {label}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-[24rem] sm:max-w-[26rem] lg:col-span-5 lg:max-w-none">
+      <div class="relative mx-auto aspect-[4/5] w-full max-w-[26rem]">
+        <div class="absolute inset-x-0 bottom-0 top-[14%] overflow-hidden rounded-t-full rounded-b-[2rem] bg-gradient-to-b from-primary-soft via-primary-light to-sand shadow-premium ring-1 ring-primary/10" aria-hidden="true">
+          <div class="absolute -right-10 top-10 h-40 w-40 rounded-full border border-primary/15"></div>
+          <div class="absolute -left-8 bottom-24 h-24 w-24 rounded-full bg-white/50 blur-xl"></div>
+        </div>
+        <Picture
+          src={portrait}
+          formats={["avif", "webp"]}
+          widths={[380, 548]}
+          sizes="(min-width: 1024px) 26rem, 80vw"
+          alt="Psikoterapist İbrahim Sarı"
+          class="absolute bottom-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_20px_30px_rgba(20,36,58,0.18)]"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div class="card-surface absolute -left-2 top-[22%] hidden px-4 py-3 sm:block lg:-left-10">
+          <p class="font-display text-lg leading-none text-foreground">{SITE.credentials}</p>
+          <p class="mt-1 text-xs text-muted-foreground">Psikoterapist</p>
+        </div>
+        <a
+          href="#yorumlar"
+          class="card-surface absolute -bottom-5 -right-2 flex items-center gap-3 px-5 py-4 transition-transform hover:-translate-y-0.5 lg:-right-8"
+        >
+          <span class="flex gap-0.5" aria-hidden="true">
+            {[0, 1, 2, 3, 4].map(() => <Star className="h-4 w-4 fill-amber-400 text-amber-400" />)}
+          </span>
+          <span class="text-sm font-semibold text-foreground">Danışan yorumları</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

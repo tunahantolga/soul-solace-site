@@ -1,0 +1,92 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import { ArrowUpRight, Calendar, Clock, Mail, MapPin, MessageCircle } from "lucide-react";
+import { SITE, whatsappUrl } from "@/config/site";
+
+const channels = [
+  {
+    icon: MessageCircle,
+    label: "Telefon / WhatsApp",
+    value: SITE.phoneDisplay,
+    href: whatsappUrl("Merhaba, iletişime geçmek istiyorum."),
+    action: "WhatsApp'tan yazın",
+    external: true,
+  },
+  { icon: Mail, label: "E-posta", value: SITE.email, href: `mailto:${SITE.email}`, action: "E-posta gönderin" },
+  { icon: MapPin, label: "Adres", value: `${SITE.street}, ${SITE.city}`, href: SITE.mapsUrl, action: "Haritada açın", external: true },
+  { icon: Clock, label: "Çalışma saatleri", value: SITE.hours },
+];
+
+const booking = [
+  { label: "Doktor Takvimi", href: SITE.doktorTakvimi },
+  { label: "Doktor Sitesi", href: SITE.doktorSitesi },
+];
+---
+
+<BaseLayout
+  title="İletişim ve Randevu | İbrahim Sarı"
+  description={`İbrahim Sarı ile iletişime geçin: WhatsApp ${SITE.phoneDisplay}, e-posta ve adres bilgileri. ${SITE.name}, ${SITE.city}. ${SITE.hours}.`}
+>
+  <main>
+    <PageHero
+      eyebrow="İletişim"
+      title="Randevu ve iletişim"
+      lead="Sorularınız ve randevu talepleriniz için bana ulaşabilirsiniz. En hızlı yanıt için WhatsApp'ı tercih edebilirsiniz."
+      crumbs={[{ label: "İletişim" }]}
+    />
+
+    <section class="section pt-6 md:pt-8">
+      <div class="container grid gap-6 lg:grid-cols-12">
+        <ul class="grid gap-6 sm:grid-cols-2 lg:col-span-8">
+          {
+            channels.map(({ icon: Icon, label, value, href, action, external }) => (
+              <li class="reveal card-surface flex flex-col p-7">
+                <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft text-primary">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <p class="mt-6 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">{label}</p>
+                <p class="mt-2 flex-1 break-words font-display text-xl text-foreground">{value}</p>
+                {href && (
+                  <a
+                    href={href}
+                    {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-hover"
+                  >
+                    {action}
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+
+        <aside class="reveal relative overflow-hidden rounded-3xl bg-foreground p-8 text-white shadow-premium lg:col-span-4">
+          <div class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/50 blur-3xl" aria-hidden="true"></div>
+          <div class="relative">
+            <Calendar className="h-7 w-7 text-white/80" />
+            <h2 class="mt-6 text-3xl text-white">Online randevu</h2>
+            <p class="mt-3 leading-relaxed text-white/75">
+              Randevunuzu WhatsApp üzerinden ya da aşağıdaki randevu platformlarından oluşturabilirsiniz.
+            </p>
+            <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" class="btn mt-8 w-full bg-white text-foreground hover:bg-white/90">
+              WhatsApp ile randevu alın
+            </a>
+            <ul class="mt-4 space-y-3">
+              {
+                booking.map((b) => (
+                  <li>
+                    <a href={b.href} target="_blank" rel="noopener noreferrer" class="btn w-full border border-white/25 text-white hover:bg-white/10">
+                      {b.label} <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

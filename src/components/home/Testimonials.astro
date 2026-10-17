@@ -1,0 +1,45 @@
+---
+import { ArrowUpRight, Star } from "lucide-react";
+import { SITE } from "@/config/site";
+import { clientTestimonials } from "@/data/client-testimonials";
+---
+
+<section id="yorumlar" class="section">
+  <div class="container">
+    <div class="reveal grid gap-6 lg:grid-cols-12 lg:items-end">
+      <div class="lg:col-span-7">
+        <p class="eyebrow">Danışan Görüşleri</p>
+        <h2 class="section-title">Gerçek deneyimler</h2>
+      </div>
+      <p class="section-lead lg:col-span-5">Terapi sürecinden geçen danışanlarımızın DoktorTakvimi'nde paylaştığı deneyimler.</p>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      {
+        clientTestimonials.map((t) => (
+          <figure class="reveal card-surface flex flex-col p-8">
+            <div class="flex gap-0.5" role="img" aria-label="5 üzerinden 5 yıldız">
+              {[0, 1, 2, 3, 4].map(() => <Star className="h-4 w-4 fill-amber-400 text-amber-400" />)}
+            </div>
+            <blockquote class="mt-6 flex-1 font-display text-lg leading-relaxed text-foreground">“{t.comment}”</blockquote>
+            <figcaption class="mt-8 flex items-center gap-3 border-t border-border pt-5">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-primary-soft text-sm font-semibold uppercase text-primary">
+                {t.name[0]}
+              </span>
+              <span>
+                <span class="block text-sm font-semibold text-foreground">{t.name}</span>
+                <span class="block text-xs text-muted-foreground">DoktorTakvimi · {t.date}</span>
+              </span>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
+    <div class="mt-10 text-center">
+      <a href={SITE.doktorTakvimi} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-hover">
+        Tüm yorumları DoktorTakvimi'nde görün <ArrowUpRight className="h-4 w-4" />
+      </a>
+    </div>
+  </div>
+</section>

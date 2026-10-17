@@ -1,0 +1,169 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/PageHero.astro";
+import CTA from "@/components/CTA.astro";
+import { ArrowRight, ArrowUpRight, Brain, Check, Heart, Home, MessageCircle, Shield, Smile, Target, TrendingUp, Users } from "lucide-react";
+import { SITE, THERAPIES, whatsappUrl } from "@/config/site";
+import { therapies, type Therapy, type TherapyIcon } from "@/data/therapies";
+
+export function getStaticPaths() {
+  return therapies.map((therapy) => ({ params: { therapy: therapy.slug }, props: { therapy } }));
+}
+
+const { therapy } = Astro.props as { therapy: Therapy };
+
+const icons: Record<TherapyIcon, typeof Brain> = {
+  brain: Brain,
+  heart: Heart,
+  shield: Shield,
+  users: Users,
+  message: MessageCircle,
+  target: Target,
+  trending: TrendingUp,
+  home: Home,
+  smile: Smile,
+};
+
+const others = THERAPIES.filter((t) => t.href !== `/${therapy.slug}/`);
+
+const schema = [
+  {
+    "@type": "Service",
+    name: therapy.title,
+    serviceType: "Psikoterapi",
+    description: therapy.description,
+    provider: { "@id": `${SITE.url}/#business` },
+    areaServed: SITE.city,
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: `${SITE.url}/` },
+      { "@type": "ListItem", position: 2, name: "Terapiler", item: `${SITE.url}/#hizmetler` },
+      { "@type": "ListItem", position: 3, name: therapy.eyebrow, item: `${SITE.url}/${therapy.slug}/` },
+    ],
+  },
+];
+---
+
+<BaseLayout title={`${therapy.metaTitle} | İbrahim Sarı`} description={therapy.description} schema={schema}>
+  <main>
+    <PageHero
+      eyebrow={therapy.eyebrow}
+      title={therapy.title}
+      lead={therapy.lead}
+      crumbs={[{ label: "Terapiler", href: "/#hizmetler" }, { label: therapy.eyebrow }]}
+    >
+      <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+        <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" class="btn-primary h-14 px-8 text-base">
+          Randevu Al <ArrowRight className="h-4 w-4" />
+        </a>
+        <a href="#calisma-alanlari" class="btn-ghost h-14 px-8 text-base">Çalışma alanları</a>
+      </div>
+    </PageHero>
+
+    <section class="section pt-6 md:pt-8">
+      <div class="container grid gap-12 lg:grid-cols-12">
+        <div class="reveal lg:col-span-7">
+          <h2 class="text-3xl sm:text-4xl">{therapy.introTitle}</h2>
+          <div class="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
+            {therapy.intro.map((p) => <p>{p}</p>)}
+          </div>
+        </div>
+        <aside class="lg:col-span-5">
+          <div class="reveal card-surface p-8 lg:sticky lg:top-28">
+            <h2 class="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-primary">Terapi sürecinin faydaları</h2>
+            <ul class="mt-5 space-y-3">
+              {
+                therapy.benefits.map((b) => (
+                  <li class="flex items-start gap-3 text-foreground">
+                    <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                      <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                    </span>
+                    {b}
+                  </li>
+                ))
+              }
+            </ul>
+            {
+              therapy.facts && (
+                <dl class="mt-8 space-y-5 border-t border-border pt-6">
+                  {therapy.facts.map((f) => (
+                    <div>
+                      <dt class="text-sm font-semibold text-foreground">{f.title}</dt>
+                      <dd class="mt-1 text-sm leading-relaxed text-muted-foreground">{f.text}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )
+            }
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="calisma-alanlari" class="section bg-sand/50">
+      <div class="container">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow">Çalışma Alanları</p>
+          <h2 class="section-title">Hangi konularda destek oluyoruz?</h2>
+        </div>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2">
+          {
+            therapy.topics.map((t) => {
+              const Icon = icons[t.icon];
+              return (
+                <div class="reveal card-surface flex gap-5 p-7">
+                  <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary-soft text-primary">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <h3 class="text-xl">{t.title}</h3>
+                    <p class="mt-2 leading-relaxed text-muted-foreground">{t.description}</p>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+
+        {
+          therapy.audience && (
+            <div class="reveal mt-16 grid gap-8 lg:grid-cols-12">
+              <h2 class="text-3xl sm:text-4xl lg:col-span-5">{therapy.audience.title}</h2>
+              <ul class="grid gap-3 sm:grid-cols-2 lg:col-span-7">
+                {therapy.audience.items.map((item) => (
+                  <li class="flex items-start gap-3 rounded-2xl bg-white/70 p-4 text-foreground ring-1 ring-border/70">
+                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="reveal text-3xl sm:text-4xl">Diğer terapiler</h2>
+        <div class="mt-10 grid gap-6 md:grid-cols-2">
+          {
+            others.map((t) => (
+              <a href={t.href} class="reveal card-surface group flex items-center justify-between gap-6 p-7 transition-all hover:-translate-y-1 hover:shadow-glow">
+                <span>
+                  <span class="block font-display text-2xl text-foreground">{t.title}</span>
+                  <span class="mt-2 block text-muted-foreground">{t.description}</span>
+                </span>
+                <ArrowUpRight className="h-5 w-5 shrink-0 text-primary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <CTA title={therapy.cta.title} text={therapy.cta.text} />
+  </main>
+</BaseLayout>

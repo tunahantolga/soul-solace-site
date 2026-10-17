@@ -1,0 +1,71 @@
+---
+import { ArrowUpRight, GraduationCap, PlayCircle } from "lucide-react";
+import { SITE } from "@/config/site";
+
+const channels = [
+  {
+    href: SITE.udemy,
+    icon: GraduationCap,
+    tag: "Süpervizyon Eğitimleri",
+    title: "Udemy Kursları",
+    description:
+      "Psikoterapi ve süpervizyon alanında profesyonel gelişim için kapsamlı online kurslar: TLDP, integratif yaklaşımlar ve klinik uygulamalar.",
+    items: ["Zaman Sınırlı Dinamik Psikoterapi (TLDP)", "İntegratif Psikoterapi Yaklaşımları", "Klinik Süpervizyon Teknikleri"],
+    cta: "Kursları inceleyin",
+  },
+  {
+    href: SITE.youtube,
+    icon: PlayCircle,
+    tag: "200+ video · 1500+ abone",
+    title: "YouTube Kanalı",
+    description:
+      "Psikoterapi, ruh sağlığı ve kişisel gelişim konularında ücretsiz video içerikler: vaka tartışmaları, teorik bilgiler ve pratik uygulamalar.",
+    items: ["Terapi Teknikleri ve Uygulamaları", "Ruh Sağlığı Konuları", "Vaka İncelemeleri"],
+    cta: "Kanalı ziyaret edin",
+  },
+];
+---
+
+<section class="section bg-sand/50">
+  <div class="container">
+    <div class="reveal mx-auto max-w-3xl text-center">
+      <p class="eyebrow">Online İçerikler</p>
+      <h2 class="section-title">Eğitim ve video içerikleri</h2>
+      <p class="section-lead">Udemy kursları ve YouTube videolarıyla bilginizi derinleştirin</p>
+    </div>
+
+    <div class="mt-14 grid gap-6 lg:grid-cols-2">
+      {
+        channels.map(({ href, icon: Icon, tag, title, description, items, cta }) => (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="reveal card-surface group flex flex-col p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow sm:p-10"
+          >
+            <div class="flex items-center justify-between gap-4">
+              <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft text-primary">
+                <Icon className="h-6 w-6" />
+              </span>
+              <span class="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">{tag}</span>
+            </div>
+            <h3 class="mt-6 text-2xl sm:text-3xl">{title}</h3>
+            <p class="mt-3 leading-relaxed text-muted-foreground">{description}</p>
+            <ul class="mt-6 flex-1 space-y-2 text-sm text-foreground">
+              {items.map((item) => (
+                <li class="flex items-center gap-3">
+                  <span class="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <span class="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+              {cta}
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
