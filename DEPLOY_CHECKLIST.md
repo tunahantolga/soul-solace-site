@@ -2,6 +2,8 @@
 
 ## 1) Pre-deploy
 - `npm ci`
+- `npm run lint` (0 errors)
+- `npm run typecheck`
 - `npm run build`
 - `npm run dev` and test key pages:
   - `/`
