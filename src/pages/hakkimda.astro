@@ -1,14 +1,177 @@
 ---
+import { Picture } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Hakkimda from "@/views/Hakkimda";
-import { responsiveImage } from "@/lib/images";
+import PageHero from "@/components/PageHero.astro";
+import CTA from "@/components/CTA.astro";
 import portrait from "@/assets/dr-ibrahim-main-optimized.jpg";
 import groupPhoto from "@/assets/hakkimda-group-optimized.jpg";
+import { SITE } from "@/config/site";
+
+const timeline = [
+  { title: "İstanbul Üniversitesi Tıp Fakültesi", text: "Tıp eğitimi" },
+  { title: "Psikanaliz eğitimi", text: "Lyon, Fransa" },
+  { title: "İntegratif Psikoterapi ve Masterson Yaklaşımı", text: "3 yıllık eğitim programları" },
+  { title: "Klinik Psikoloji Yüksek Lisansı", text: "Yüksek lisans derecesi" },
+  {
+    date: "2011 – 2013",
+    title: "TLDP Süpervizör Eğitimi · LIFT Sertifikası",
+    text: "Hanna Levenson'dan Zaman Sınırlı Dinamik Psikoterapi süpervizyon eğitimi — Levenson Institute for Training, San Francisco, ABD",
+  },
+  {
+    date: "2013",
+    title: "SEPI 29. Yıllık Konferansı, Barselona",
+    text: "Society for the Exploration of Psychotherapy Integration — \"A New Approach to TLDP Practice\" araştırma sunumu",
+  },
+  {
+    title: "Nörobilim Doktorası",
+    text: "Doktora tezi: \"Kısa Süreli Dinamik Psikoterapinin (TLDP) beyin serotonin reseptörlerine etkisi\"",
+  },
+];
+
+const trainings = [
+  "İntegratif Psikoterapi Master Programı",
+  "John Clarkin – Aktarım Odaklı Psikoterapi",
+  "Jeffrey J. Magnavita – Unified Psychotherapy",
+  "Allan N. Schore – Gelişimsel Nörobiyoloji",
+  "John C. Norcross – Bütüncül Psikoterapi",
+  "Otto F. Kernberg – Aktarım Odaklı Psikoterapi",
+  "Leslie S. Greenberg – Duygu Odaklı Psikoterapi",
+  "Paul L. Wachtel – İlişkisel Psikoterapi",
+];
+
+const areas = [
+  "Depresyon Bozuklukları",
+  "Kaygı (Anksiyete) Bozuklukları",
+  "Takıntı-Zorlantı Bozukluğu (OKB)",
+  "Travma ve Stresle İlişkili Bozukluklar",
+  "Çözülme (Dissosiyasyon) Bozuklukları",
+  "Kayıp ve Yas Bozuklukları",
+  "Bedensel Belirti Bozuklukları",
+  "Beslenme ve Yeme Bozuklukları",
+  "Uyku-Uyanıklık Bozuklukları",
+  "Cinsel İşlev Bozuklukları",
+  "Madde ile İlişkili Bozukluklar",
+  "Kişilik Bozuklukları",
+];
 ---
 
 <BaseLayout
-  title="Hakkımda | İbrahim Sarı, MD, PhD"
-  description="Psikoterapist İbrahim Sarı'nın eğitimi ve deneyimi: Lyon'da psikanaliz eğitimi, İntegratif Psikoterapi ve Masterson Yaklaşımı programları, Klinik Psikoloji yüksek lisansı, TLDP ve nörobilim doktorası."
+  title={`Hakkımda | ${SITE.person}, ${SITE.credentials}`}
+  description="Psikoterapist İbrahim Sarı'nın eğitimi ve deneyimi: İstanbul Üniversitesi Tıp Fakültesi, Lyon'da psikanaliz eğitimi, Klinik Psikoloji yüksek lisansı, TLDP süpervizörlüğü ve nörobilim doktorası."
 >
-  <Hakkimda portrait={await responsiveImage(portrait, [480, 720, 960])} groupPhoto={await responsiveImage(groupPhoto)} />
+  <main>
+    <PageHero eyebrow="Hakkımda" title={SITE.person} crumbs={[{ label: "Hakkımda" }]}>
+      <p class="mt-3 font-display text-2xl italic text-primary sm:text-3xl">{SITE.credentials}</p>
+      <ul class="mt-8 flex flex-wrap gap-2">
+        {
+          ["MD", "PhD", "TLDP Süpervizörü", "Psikoterapist"].map((b) => (
+            <li class="rounded-full bg-white px-4 py-2 text-sm font-medium text-foreground shadow-soft">{b}</li>
+          ))
+        }
+      </ul>
+    </PageHero>
+
+    <section class="section overflow-x-clip pt-6 md:pt-8">
+      <div class="container grid items-start gap-12 lg:grid-cols-12">
+        <div class="reveal relative mx-auto w-full max-w-md lg:col-span-5">
+          <div class="absolute -inset-4 -z-10 -rotate-2 rounded-[2.5rem] bg-primary/10" aria-hidden="true"></div>
+          <Picture
+            src={portrait}
+            formats={["avif", "webp"]}
+            widths={[420, 640, 900]}
+            sizes="(min-width: 1024px) 28rem, 90vw"
+            alt="İbrahim Sarı, MD, PhD – Psikoterapist"
+            class="aspect-[4/5] w-full rounded-[2rem] object-cover object-top shadow-premium"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="reveal lg:col-span-7">
+          <p class="font-display text-2xl leading-relaxed text-foreground sm:text-3xl">
+            Lisans sonrası Lyon'da psikanaliz eğitimine başladı; bugün integratif psikoterapi alanında danışanlarla
+            ve terapist adaylarıyla çalışıyor.
+          </p>
+          <p class="mt-8 text-lg leading-relaxed text-muted-foreground">
+            Uzm. Psk. İbrahim Sarı lisans sonrası Lyon'da psikanaliz eğitimine başlamıştır. 3 senelik İntegratif
+            Psikoterapi ve Masterson Yaklaşımı Programlarını tamamlamıştır. Klinik Psikoloji Yüksek Lisans derecesi
+            almıştır. Kısa Süreli Dinamik Psikoterapi süpervizör eğitimini tamamlamıştır. Nörobilim alanındaki
+            doktorasını tamamlamıştır. Halen İntegratif Enstitü Psikolojik Danışmanlık Merkezi'nde danışanlara hizmet
+            vermektedir.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-sand/50">
+      <div class="container grid gap-16 lg:grid-cols-12">
+        <div class="lg:col-span-7">
+          <div class="reveal">
+            <p class="eyebrow">Eğitim & Deneyim</p>
+            <h2 class="section-title">Akademik ve klinik yolculuk</h2>
+          </div>
+          <ol class="mt-12 border-l border-primary/25">
+            {
+              timeline.map((item) => (
+                <li class="reveal relative pb-10 pl-8 last:pb-0">
+                  <span class="absolute -left-[7px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-primary bg-background" aria-hidden="true" />
+                  {item.date && <p class="text-xs font-semibold uppercase tracking-wider text-primary">{item.date}</p>}
+                  <h3 class="mt-1 text-xl">{item.title}</h3>
+                  <p class="mt-1 leading-relaxed text-muted-foreground">{item.text}</p>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+        <div class="lg:col-span-5">
+          <div class="reveal card-surface p-8 lg:sticky lg:top-28">
+            <h2 class="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-primary">Aldığım eğitimler</h2>
+            <ul class="mt-6 space-y-4">
+              {
+                trainings.map((t) => {
+                  const [who, what] = t.split(" – ");
+                  return (
+                    <li class="border-b border-border pb-4 last:border-0 last:pb-0">
+                      <span class="block font-medium text-foreground">{what ?? who}</span>
+                      {what && <span class="block text-sm text-muted-foreground">{who}</span>}
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid items-center gap-12 lg:grid-cols-2">
+        <div class="reveal">
+          <Picture
+            src={groupPhoto}
+            formats={["avif", "webp"]}
+            widths={[480, 720, 1000]}
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            alt="İbrahim Sarı eğitim çalışması grup fotoğrafı"
+            class="aspect-square w-full rounded-[2rem] object-cover object-top shadow-premium"
+          />
+        </div>
+        <div class="reveal">
+          <p class="eyebrow">Çalışma Alanları</p>
+          <h2 class="section-title">Klinik çalışma alanları</h2>
+          <ul class="mt-10 grid gap-3 sm:grid-cols-2">
+            {
+              areas.map((a) => (
+                <li class="flex items-center gap-3 rounded-2xl bg-white p-4 text-sm font-medium text-foreground shadow-soft">
+                  <span class="h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                  {a}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <CTA />
+  </main>
 </BaseLayout>

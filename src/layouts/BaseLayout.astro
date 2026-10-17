@@ -32,7 +32,14 @@ const jsonLd = {
       email: SITE.email,
       telephone: SITE.phone,
       image: ogImage,
-      address: { "@type": "PostalAddress", addressLocality: SITE.city, addressCountry: SITE.country },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: SITE.street,
+        addressLocality: SITE.city,
+        addressCountry: SITE.country,
+      },
+      openingHours: SITE.hoursSchema,
+      hasMap: SITE.mapsUrl,
       founder: { "@id": `${SITE.url}/#person` },
     },
     {

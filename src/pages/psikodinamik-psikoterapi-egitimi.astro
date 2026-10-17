@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { BookOpen, CalendarDays, ChevronDown, GraduationCap, MonitorPlay, Quote, Users } from "lucide-react";
+import PageHero from "@/components/PageHero.astro";
+import { BookOpen, CalendarDays, ChevronDown, MonitorPlay, Quote, Users } from "lucide-react";
 import { SITE } from "@/config/site";
 import { certificates, extraCourses, modules, programFacts, supervision } from "@/data/egitim-programi";
 import { studentTestimonials } from "@/data/student-testimonials";
@@ -34,28 +35,22 @@ const course = {
   description="10 ay teorik eğitim ve 10 ay süpervizyondan oluşan online Psikodinamik Psikoterapi Eğitim Programı: 10 modülde klinik ve genel dersler, grup süpervizyonu, uygulayıcı sertifikası."
   schema={[course]}
 >
-  <main class="pt-24 pb-16">
-    <section class="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent-blue/5 py-14 md:py-16">
-      <div class="absolute right-0 top-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl" aria-hidden="true"></div>
-      <div class="container relative z-10 mx-auto px-4 sm:px-6">
-        <div class="mx-auto max-w-4xl text-center">
-          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2">
-            <GraduationCap className="h-4 w-4 text-primary" />
-            <span class="text-sm font-medium text-primary">Eğitim Programı</span>
-          </div>
-          <h1 class="mb-6 text-4xl font-bold text-foreground md:text-5xl">Psikodinamik Psikoterapi Eğitim Programı</h1>
-          <p class="mx-auto max-w-3xl text-lg leading-relaxed text-muted-foreground">
-            İntegratif Enstitü bünyesinde İbrahim Sarı ve eğitmen kadrosu tarafından yürütülen program; gelişimsel
-            nesne ilişkilerinden kişilik örgütlenmesine, aktarımın yorumlanmasından vaka formülasyonuna uzanan
-            kuramsal ve klinik bir müfredatı, düzenli grup süpervizyonuyla birleştirir.
-          </p>
-        </div>
+  <main class="pb-4">
+    <PageHero
+      eyebrow="Eğitim Programı"
+      title="Psikodinamik Psikoterapi Eğitim Programı"
+      lead="İntegratif Enstitü bünyesinde İbrahim Sarı ve eğitmen kadrosu tarafından yürütülen program; gelişimsel nesne ilişkilerinden kişilik örgütlenmesine, aktarımın yorumlanmasından vaka formülasyonuna uzanan kuramsal ve klinik bir müfredatı, düzenli grup süpervizyonuyla birleştirir."
+      crumbs={[{ label: "Eğitim Programı" }]}
+    >
+      <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-primary h-14 px-8 text-base">Bilgi ve kayıt</a>
+        <a href="#mufredat" class="btn-ghost h-14 px-8 text-base">Müfredatı inceleyin</a>
       </div>
-    </section>
+    </PageHero>
 
-    <section class="py-14">
+    <section class="pb-14">
       <div class="container mx-auto px-4 sm:px-6">
-        <dl class="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <dl class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {
             programFacts.map((fact, i) => {
               const Icon = factIcons[i];

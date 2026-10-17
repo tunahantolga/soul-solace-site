@@ -1,6 +1,6 @@
 ---
 import Logo from "@/assets/integratif-logo.svg";
-import { Calendar, GraduationCap, Mail, MapPin, Phone, ExternalLink } from "lucide-react";
+import { Calendar, Clock, GraduationCap, Mail, MapPin, Phone, ExternalLink } from "lucide-react";
 import { SITE, THERAPIES, whatsappUrl } from "@/config/site";
 
 const pages = [
@@ -60,7 +60,12 @@ const year = new Date().getFullYear();
             <Mail className="h-4 w-4 shrink-0 text-primary" />{SITE.email}
           </a>
         </li>
-        <li class="inline-flex items-center gap-3"><MapPin className="h-4 w-4 text-primary" />{SITE.city}, Türkiye</li>
+        <li>
+          <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-start gap-3 hover:text-foreground">
+            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />{SITE.street}, {SITE.city}
+          </a>
+        </li>
+        <li class="inline-flex items-center gap-3"><Clock className="h-4 w-4 text-primary" />{SITE.hours}</li>
       </ul>
       <div class="mt-6 flex flex-wrap gap-2">
         <a href={SITE.doktorTakvimi} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-white/60 px-4 py-2 text-xs font-medium text-foreground hover:bg-white">

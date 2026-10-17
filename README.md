@@ -32,14 +32,16 @@ npm run preview    # build çıktısını yerelde sun
 src/
   pages/        Astro sayfaları (URL = dosya adı); başlık, açıklama ve yapısal veri burada
   layouts/      Ortak sayfa iskeleti: <head> SEO etiketleri, JSON-LD, header, footer
-  views/        Alt sayfaların React gövdeleri
-  components/   Header, Footer, CTA, Gallery (istemci adacığı); home/ ana sayfa bölümleri; ui/ bileşenleri
+  components/   Header, Footer, PageHero, CTA, Gallery (istemci adacığı); home/ ana sayfa bölümleri
   config/       Site geneli bilgiler (iletişim, sosyal medya, ünvan, menü)
-  data/         İçerik verileri (eğitim müfredatı, yorumlar)
+  data/         İçerik verileri (terapi sayfaları, eğitim müfredatı, yorumlar)
   lib/          Yardımcılar (görsel optimizasyonu, tipler)
   assets/       Optimize edilecek görseller
 public/         Olduğu gibi kopyalanan dosyalar (favicon, PDF, og-image, robots.txt)
 ```
+
+Terapi sayfaları `src/data/therapies.ts` içindeki verilerden tek bir şablonla (`src/pages/[therapy].astro`)
+üretilir; yeni bir terapi eklemek için diziye bir kayıt eklemek yeterlidir.
 
 Yeni sayfa eklemek için `src/pages/` altına bir `.astro` dosyası oluşturun ve `BaseLayout`'a
 `title` ve `description` verin; site haritası otomatik güncellenir.
