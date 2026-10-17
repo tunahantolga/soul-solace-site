@@ -16,6 +16,7 @@ const Header = ({ pathname, logoSrc }: HeaderProps) => {
   const navLinks = [
     { to: "/", label: "Ana Sayfa" },
     { to: "/hakkimda", label: "Hakkımda" },
+    { to: "/psikodinamik-psikoterapi-egitimi", label: "Eğitim Programı" },
     { to: "/iletisim", label: "İletişim" },
   ];
 

@@ -46,6 +46,12 @@ const Education = ({ egitimGallery, tldpGallery, norobilimGallery }: EducationPr
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Uluslararası standartlarda süpervizyon ve eğitim programları
           </p>
+          <a
+            href="/psikodinamik-psikoterapi-egitimi"
+            className="mt-6 inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
+          >
+            Psikodinamik Psikoterapi Eğitim Programı
+          </a>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">

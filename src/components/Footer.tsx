@@ -60,6 +60,12 @@ const Footer = () => {
               <a href="/hakkimda" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                 Hakkımda
               </a>
+              <a
+                href="/psikodinamik-psikoterapi-egitimi"
+                className="text-sm text-muted-foreground transition-colors hover:text-primary"
+              >
+                Eğitim Programı
+              </a>
               <a href="/iletisim" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                 İletişim
               </a>

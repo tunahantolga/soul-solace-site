@@ -5,12 +5,12 @@ export const studentTestimonials = [
   {
     name: "Özden Ö.",
     comment:
-      "Ekol eğitimim konusunda iyi bir karar vermiş olduğumu anlamama yardımcı olan verimli bir eğitimdi. Karmaşık teorik bilgilerin vaka paylaşımları ile netleştirilmesi benim açımdan en destekleyici kısımdı. Her boyutun en ince ayrıntısına kadar irdelenmesi, derslerin istediğim zaman ulaşılabilir olması çok kıymetli. Sorularıma yanıt aradığımda desteğini esirgemeyen değerli hocalarıma teşekkür ederim.",
+      "Ekol eğitimim konusunda iyi bir karar vermiş olduğumu anlamama yardımcı olan verimli bir eğitimdi. […] Karmaşık teorik bilgilerin vaka paylaşımları ile netleştirilmesi benim açımdan en destekleyici kısımdı. Her boyutun en ince ayrıntısına kadar irdelenmesi, derslerin istediğim zaman ulaşılabilir olması çok kıymetli. Sorularıma yanıt aradığımda cevapları ile her zaman desteğini esirgemeyen değerli hocalarıma teşekkür ederim.",
   },
   {
-    name: "Eğitim katılımcısı",
+    name: "Anonim",
     comment:
-      "Bu ikinci eğitim sürecim olduğu için hem önceki süreçlerimi hem de yeni öğrendiklerimi daha derinlemesine fark etme fırsatım oldu. Her bir dersin içeriği, sadece teorik açıdan değil, aynı zamanda kişisel farkındalığım açısından da çok değerliydi. Bu kavramların terapötik süreçlerde nasıl derinlemesine etkiler yarattığını görmek ve anlamak, profesyonel gelişimimi çok daha sağlam temellere oturttu.",
+      "Bu ikinci eğitim sürecim olduğu için hem önceki süreçlerimi hem de yeni öğrendiklerimi daha derinlemesine fark etme fırsatım oldu. Her bir dersin içeriği, sadece teorik açıdan değil, aynı zamanda kişisel farkındalığım açısından da çok değerliydi. Bahsettiğiniz bu kavramların, terapötik süreçlerde nasıl derinlemesine etkiler yarattığını görmek ve anlamak, profesyonel gelişimimi çok daha sağlam temellere oturttu.",
   },
   {
     name: "Can",
