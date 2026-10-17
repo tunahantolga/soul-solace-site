@@ -6,8 +6,10 @@ Psikoterapist İbrahim Sarı ve İntegratif Enstitü Psikolojik Danışmanlık M
 ## Teknoloji
 
 - [Astro](https://astro.build) — her sayfa build sırasında statik HTML olarak üretilir
-- React — yalnızca etkileşimli parçalar (menü, galeriler) istemcide çalışır ("island")
-- Tailwind CSS + shadcn/ui bileşenleri
+- React — yalnızca fotoğraf galerileri istemcide çalışır ("island"); menü ~1 KB'lık bir script ile çalışır
+- Tailwind CSS; tasarım token'ları `src/index.css` içinde (renkler, gölgeler, `.btn-primary`, `.eyebrow` vb.)
+- Fontlar: Fraunces (başlıklar) ve Inter (metin), `@fontsource-variable` ile sunucudan servis edilir
+- Kaydırma animasyonları ve sayfa geçişleri JavaScript'siz, CSS ile (`.reveal`, View Transitions)
 - `astro:assets` ile otomatik WebP / çoklu boyut görsel optimizasyonu
 - `@astrojs/sitemap` ile otomatik site haritası
 
@@ -31,8 +33,9 @@ src/
   pages/        Astro sayfaları (URL = dosya adı); başlık, açıklama ve yapısal veri burada
   layouts/      Ortak sayfa iskeleti: <head> SEO etiketleri, JSON-LD, header, footer
   views/        Alt sayfaların React gövdeleri
-  components/   Ana sayfa bölümleri, Header ve Gallery (istemci adacıkları), ui/ bileşenleri
-  config/       Site geneli bilgiler (iletişim, sosyal medya, ünvan)
+  components/   Header, Footer, CTA, Gallery (istemci adacığı); home/ ana sayfa bölümleri; ui/ bileşenleri
+  config/       Site geneli bilgiler (iletişim, sosyal medya, ünvan, menü)
+  data/         İçerik verileri (eğitim müfredatı, yorumlar)
   lib/          Yardımcılar (görsel optimizasyonu, tipler)
   assets/       Optimize edilecek görseller
 public/         Olduğu gibi kopyalanan dosyalar (favicon, PDF, og-image, robots.txt)

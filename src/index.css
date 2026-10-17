@@ -2,126 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Modern Psychology Design System - Trust, Calm, Innovation
-All colors MUST be HSL for perfect theming.
-Blue palette for therapy and mental wellness
-*/
-
+/*
+ * Design tokens — calm, warm and trustworthy.
+ * Ivory surfaces, deep navy ink, the brand blue as the single accent.
+ * All colors are HSL channels so Tailwind opacity modifiers work.
+ */
 @layer base {
   :root {
-    /* Creamy light surface (less cold than pure blue-white) */
-    --background: 38 55% 97%;
-    --foreground: 215 25% 15%;
+    --background: 40 33% 97%;
+    --foreground: 215 45% 14%;
+    --sand: 36 33% 92%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
-
+    --card-foreground: 215 45% 14%;
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 215 45% 14%;
 
-    /* Modern, düşük doygunluklu blue primary */
-    --primary: 210 65% 50%;
+    --primary: 211 58% 42%;
     --primary-foreground: 0 0% 100%;
-    --primary-soft: 210 60% 93%;
-    --primary-hover: 210 65% 44%;
-    --primary-light: 210 60% 97%;
-    --primary-glow: 210 80% 58%;
+    --primary-soft: 211 55% 93%;
+    --primary-hover: 211 60% 35%;
+    --primary-light: 211 55% 97%;
+    --primary-glow: 205 75% 55%;
 
-    /* Modern secondary palette */
-    --secondary: 210 40% 95%;
-    --secondary-foreground: 215 25% 15%;
-    --accent: 200 50% 90%;
-    --accent-foreground: 215 25% 15%;
-    --accent-blue: 200 65% 45%;
+    --secondary: 211 35% 95%;
+    --secondary-foreground: 215 45% 14%;
+    --accent: 199 45% 90%;
+    --accent-foreground: 215 45% 14%;
+    --accent-blue: 199 62% 40%;
 
-    /* Soft neutral palette */
-    --muted: 210 30% 96%;
-    --muted-foreground: 215 15% 50%;
+    --muted: 36 25% 94%;
+    --muted-foreground: 215 16% 38%;
 
-    --destructive: 0 75% 55%;
+    --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 30% 90%;
-    --input: 210 30% 96%;
-    --ring: 210 70% 50%;
+    --border: 36 18% 86%;
+    --input: 36 18% 86%;
+    --ring: 211 58% 42%;
 
-    /* Modern design tokens with blue harmony */
-    /* Soft warm-to-blue gradient */
-    --hero-gradient: linear-gradient(135deg, hsl(38 90% 96%), hsl(200 90% 95%));
-    --card-gradient: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 50% 98%));
-    --premium-shadow: 0 4px 24px hsl(210 65% 50% / 0.07);
-    --soft-shadow: 0 2px 8px hsl(210 40% 35% / 0.04);
-    --button-shadow: 0 4px 16px hsl(210 65% 50% / 0.22);
-    --glow-shadow: 0 0 32px hsl(210 80% 58% / 0.22);
-    --text-primary: 215 25% 15%;
-    --text-secondary: 215 15% 45%;
-    --text-muted: 215 10% 60%;
-    --surface-elevated: 210 50% 99%;
-    --warm-background: 38 55% 97%;
+    --premium-shadow: 0 20px 40px -24px hsl(215 45% 14% / 0.25);
+    --soft-shadow: 0 1px 2px hsl(215 45% 14% / 0.04), 0 8px 24px -12px hsl(215 45% 14% / 0.12);
+    --button-shadow: 0 8px 20px -8px hsl(211 58% 42% / 0.55);
+    --glow-shadow: 0 0 0 1px hsl(211 58% 42% / 0.15), 0 24px 48px -24px hsl(211 58% 42% / 0.45);
 
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 215 30% 8%;
-    --foreground: 210 30% 95%;
-
-    --card: 215 25% 10%;
-    --card-foreground: 210 30% 95%;
-
-    --popover: 215 25% 10%;
-    --popover-foreground: 210 30% 95%;
-
-    --primary: 210 65% 50%;
-    --primary-foreground: 0 0% 100%;
-    --primary-soft: 210 45% 20%;
-    --primary-hover: 210 65% 58%;
-
-    --secondary: 215 20% 15%;
-    --secondary-foreground: 210 30% 90%;
-    --accent: 200 35% 24%;
-    --accent-foreground: 210 30% 95%;
-
-    --muted: 215 20% 15%;
-    --muted-foreground: 210 20% 60%;
-
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 210 30% 95%;
-
-    --border: 215 20% 18%;
-    --input: 215 20% 15%;
-    --ring: 210 70% 50%;
-
-    --hero-gradient: linear-gradient(135deg, hsl(215 30% 8%), hsl(210 35% 12%));
-    --card-shadow: 0 4px 24px hsl(210 65% 50% / 0.15);
-    --button-shadow: 0 4px 16px hsl(210 65% 50% / 0.35);
-    --text-primary: 210 30% 95%;
-    --text-secondary: 210 20% 70%;
-    --warm-background: 215 30% 8%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 0.75rem;
   }
 }
 
@@ -130,137 +55,113 @@ Blue palette for therapy and mental wellness
     border-color: hsl(var(--border));
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 400;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    @apply bg-background font-sans text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: Arial, Helvetica, sans-serif;
+  h1,
+  h2,
+  h3 {
+    @apply font-display text-foreground;
+    font-optical-sizing: auto;
     font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
   }
 
-  input, textarea, select, button {
-    font-family: Arial, Helvetica, sans-serif;
+  p {
+    text-wrap: pretty;
   }
 
+  ::selection {
+    background: hsl(var(--primary) / 0.18);
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Small uppercase label above section headings */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-6 bg-primary/60;
+  }
+
+  .section {
+    @apply py-20 md:py-28;
+  }
+
+  .section-title {
+    @apply mt-4 text-3xl leading-tight sm:text-4xl md:text-5xl;
+  }
+
+  .section-lead {
+    @apply mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg;
+  }
+
+  .btn {
+    @apply inline-flex h-12 items-center justify-center gap-2 rounded-full px-6 text-sm font-semibold transition-all duration-200 focus-visible:outline-offset-2 active:scale-[0.98];
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-primary-foreground shadow-button hover:bg-primary-hover;
+  }
+
+  .btn-ghost {
+    @apply btn border border-foreground/15 bg-white/60 text-foreground backdrop-blur hover:border-foreground/30 hover:bg-white;
+  }
+
+  .card-surface {
+    @apply rounded-3xl border border-border/80 bg-card shadow-soft;
+  }
+
+  /* Gradient text used for credentials */
   .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-blue)));
+    background: linear-gradient(120deg, hsl(var(--primary)), hsl(var(--accent-blue)));
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
+}
 
-  .glass-effect {
-    background: hsl(var(--card) / 0.7);
-    backdrop-filter: blur(16px);
-    border: 1px solid hsl(var(--border) / 0.5);
-  }
-
-  .premium-card {
-    background: var(--card-gradient);
-    box-shadow: var(--premium-shadow);
-    border: 1px solid hsl(var(--border) / 0.6);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .premium-card:hover {
-    box-shadow: var(--glow-shadow);
-    transform: translateY(-4px);
-  }
-
-  .floating {
-    animation: none;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  .fade-in-up {
-    animation: none;
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+/* Scroll-driven reveal: progressive enhancement, no JavaScript. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 25%;
     }
   }
 
-  .scale-on-hover {
-    transition: transform 0.2s ease;
+  /* Smooth cross-page transitions in supporting browsers. */
+  @view-transition {
+    navigation: auto;
   }
+}
 
-  .scale-on-hover:hover {
-    transform: scale(1.02);
-  }
-
-  /* Scroll animation utilities */
-  .scroll-fade-in {
+@keyframes reveal {
+  from {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    transform: translateY(24px);
   }
-
-  .scroll-fade-in.visible {
+  to {
     opacity: 1;
-    transform: translateY(0);
-  }
-
-  .scroll-scale-in {
-    opacity: 0;
-    transform: scale(0.95);
-    transition: all 0.8s ease-out;
-  }
-
-  .scroll-scale-in.visible {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .scroll-slide-left {
-    opacity: 0;
-    transform: translateX(-30px);
-    transition: all 0.8s ease-out;
-  }
-
-  .scroll-slide-left.visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .scroll-slide-right {
-    opacity: 0;
-    transform: translateX(30px);
-    transition: all 0.8s ease-out;
-  }
-
-  .scroll-slide-right.visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  /* Tone down global heavy weights for a calmer, classic look */
-  .font-bold {
-    font-weight: 600 !important;
-  }
-
-  .font-semibold {
-    font-weight: 500 !important;
+    transform: none;
   }
 }

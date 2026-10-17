@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { GalleryPhoto } from "@/lib/types";
 
@@ -19,8 +18,8 @@ const Gallery = ({ photos, label }: GalleryProps) => {
   if (!photo) return null;
 
   return (
-    <Card
-      className="overflow-hidden border border-border shadow-soft bg-card"
+    <div
+      className="overflow-hidden rounded-3xl border border-border/80 bg-card shadow-soft"
       role="region"
       aria-roledescription="galeri"
       aria-label={`${label} görselleri`}
@@ -29,43 +28,45 @@ const Gallery = ({ photos, label }: GalleryProps) => {
         if (e.key === "ArrowRight") next();
       }}
     >
-      <div className="relative">
+      <div className="aspect-[4/3] bg-white">
         <img
           key={photo.image.src}
           src={photo.image.src}
           srcSet={photo.image.srcSet}
-          sizes="(min-width: 896px) 896px, 100vw"
+          sizes="(min-width: 1024px) 600px, 100vw"
           width={photo.image.width}
           height={photo.image.height}
           alt={photo.alt}
-          className="w-full h-[280px] sm:h-[360px] md:h-[420px] object-contain bg-white"
+          className="h-full w-full object-contain animate-in fade-in duration-300"
           loading="lazy"
           decoding="async"
         />
-
-        <button
-          type="button"
-          onClick={prev}
-          className="absolute left-4 sm:left-3 top-1/2 -translate-y-1/2 h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black/55 text-white flex items-center justify-center hover:bg-black/70 transition"
-          aria-label={`Önceki ${label} görseli`}
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-
-        <button
-          type="button"
-          onClick={next}
-          className="absolute right-4 sm:right-3 top-1/2 -translate-y-1/2 h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black/55 text-white flex items-center justify-center hover:bg-black/70 transition"
-          aria-label={`Sonraki ${label} görseli`}
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
       </div>
 
-      <CardContent className="py-3 text-center text-sm text-muted-foreground" aria-live="polite">
-        {current + 1} / {photos.length}
-      </CardContent>
-    </Card>
+      <div className="flex items-center justify-between gap-4 border-t border-border/80 px-4 py-3">
+        <span className="text-sm tabular-nums text-muted-foreground" aria-live="polite">
+          {current + 1} / {photos.length}
+        </span>
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={prev}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/15 text-foreground transition-colors hover:bg-muted"
+            aria-label={`Önceki ${label} görseli`}
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            type="button"
+            onClick={next}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/15 text-foreground transition-colors hover:bg-muted"
+            aria-label={`Sonraki ${label} görseli`}
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 

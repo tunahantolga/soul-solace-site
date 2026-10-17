@@ -1,18 +1,15 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Education from "@/components/Education";
-import About from "@/components/About";
-import OnlineContent from "@/components/OnlineContent";
-import Testimonials from "@/components/Testimonials";
-import CTA from "@/components/CTA";
-import Gallery from "@/components/Gallery";
+import Hero from "@/components/home/Hero.astro";
+import Services from "@/components/home/Services.astro";
+import Approach from "@/components/home/Approach.astro";
+import Education from "@/components/home/Education.astro";
+import Online from "@/components/home/Online.astro";
+import Testimonials from "@/components/home/Testimonials.astro";
+import CTA from "@/components/CTA.astro";
 import { responsiveImage } from "@/lib/images";
 import type { ImageMetadata } from "astro";
 
-import heroImage from "@/assets/hero-chair-optimized.jpg";
-import youtubeBg from "@/assets/youtube-card-bg.jpg";
 import egitimCover from "@/assets/egitimler-cover.jpg";
 import egitimCover02 from "@/assets/egitimler-cover-02.jpg";
 import egitimCover03 from "@/assets/egitimler-cover-03.jpg";
@@ -63,20 +60,21 @@ const seminerPhotos = await gallery(
 
 <BaseLayout
   title="İbrahim Sarı | İntegratif Enstitü Psikolojik Danışmanlık Merkezi"
-  description="İbrahim Sarı ile bireysel terapi, çift terapisi ve aile terapisi hizmetleri. İntegratif Enstitü Psikolojik Danışmanlık Merkezi iletişim ve randevu bilgileri."
+  description="Psikoterapist İbrahim Sarı, MD, PhD ile bireysel terapi, çift terapisi ve aile terapisi. İntegratif Enstitü Psikolojik Danışmanlık Merkezi, İstanbul: randevu ve iletişim bilgileri."
 >
   <main>
-    <Hero image={await responsiveImage(heroImage, [640, 1024, 1600, 1920])} />
+    <Hero />
     <Services />
-    <Education>
-      <Gallery slot="egitimGallery" client:visible photos={egitimPhotos} label="eğitim" />
-      <Gallery slot="tldpGallery" client:visible photos={tldpPhotos} label="TLDP eğitim" />
-      <Gallery slot="norobilimGallery" client:visible photos={norobilimPhotos} label="nörobilim araştırması" />
-    </Education>
-    <About />
-    <OnlineContent youtubeBg={await responsiveImage(youtubeBg)}>
-      <Gallery slot="seminerGallery" client:visible photos={seminerPhotos} label="seminer" />
-    </OnlineContent>
+    <Approach />
+    <Education
+      galleries={[
+        { title: "Aktarım Odaklı Psikoterapi Eğitimi (Kernberg Yaklaşımı)", label: "eğitim", photos: egitimPhotos },
+        { title: "Kısa Süreli Dinamik Psikoterapi (TLDP) Eğitimi", label: "TLDP eğitim", photos: tldpPhotos },
+        { title: "Nörobilim Araştırması", label: "nörobilim araştırması", photos: norobilimPhotos },
+        { title: "Seminerler", label: "seminer", photos: seminerPhotos },
+      ]}
+    />
+    <Online />
     <Testimonials />
     <CTA />
   </main>

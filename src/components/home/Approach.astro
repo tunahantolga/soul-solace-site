@@ -1,0 +1,74 @@
+---
+import { Picture } from "astro:assets";
+import { Check, Heart, Shield, Sparkles } from "lucide-react";
+import room from "@/assets/hero-chair-optimized.jpg";
+
+const values = [
+  { icon: Heart, title: "Şefkat", description: "Derin anlayış ve empati ile yaklaşıyoruz." },
+  { icon: Sparkles, title: "Profesyonellik", description: "Bilimsel temelli, güncel terapi yöntemleri." },
+  { icon: Shield, title: "Güvenilirlik", description: "Tam gizlilik ve güvenli terapötik ortam." },
+];
+
+const features = [
+  "Lisanslı ve deneyimli terapist",
+  "Kanıta dayalı terapi yöntemleri",
+  "Kişiye özel tedavi planı",
+  "Esnek randevu saatleri",
+  "Online ve yüz yüze seanslar",
+  "%100 gizlilik",
+];
+---
+
+<section class="section bg-sand/50">
+  <div class="container grid items-center gap-14 lg:grid-cols-2">
+    <div class="reveal relative order-last lg:order-first">
+      <Picture
+        src={room}
+        formats={["avif", "webp"]}
+        widths={[480, 720, 900]}
+        sizes="(min-width: 1024px) 40vw, 100vw"
+        alt="Terapi odası"
+        class="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-premium"
+      />
+      <div class="card-surface absolute -bottom-8 right-6 max-w-[16rem] p-5 sm:right-10">
+        <p class="font-display text-3xl text-foreground">50 dk</p>
+        <p class="mt-1 text-sm leading-relaxed text-muted-foreground">Seanslar genellikle haftada bir, 50 dakika olarak yapılır.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="reveal">
+        <p class="eyebrow">Neden Biz?</p>
+        <h2 class="section-title">İntegratif psikoterapi yaklaşımı</h2>
+        <p class="section-lead">
+          Her danışana özel, bilimsel temelli ve güven veren profesyonel destek.
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-4 sm:grid-cols-3">
+        {
+          values.map(({ icon: Icon, title, description }) => (
+            <div class="reveal rounded-2xl bg-white/70 p-5 ring-1 ring-border/70">
+              <Icon className="h-5 w-5 text-primary" />
+              <h3 class="mt-4 font-sans text-base font-semibold">{title}</h3>
+              <p class="mt-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <ul class="reveal mt-10 grid gap-3 sm:grid-cols-2">
+        {
+          features.map((f) => (
+            <li class="flex items-center gap-3 text-sm text-foreground">
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <Check className="h-3.5 w-3.5" strokeWidth={3} />
+              </span>
+              {f}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

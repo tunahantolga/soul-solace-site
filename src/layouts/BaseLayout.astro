@@ -1,9 +1,9 @@
 ---
-import { getImage } from "astro:assets";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
 import { SITE } from "@/config/site";
-import logo from "@/assets/integratif-logo-transparent.png";
+import "@fontsource-variable/inter";
+import "@fontsource-variable/fraunces";
 import "@/index.css";
 
 interface Props {
@@ -20,13 +20,6 @@ const pathname = Astro.url.pathname.replace(/\.html$/, "").replace(/\/index$/, "
 const canonical = new URL(pathname, SITE.url).href;
 const ogImage = new URL("/og-image.jpg", SITE.url).href;
 
-// The header logo renders at 36px tall; ship a 2x WebP instead of the 120 KB PNG.
-const logoImage = await getImage({
-  src: logo,
-  height: 72,
-  width: Math.round((72 * logo.width) / logo.height),
-  format: "webp",
-});
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -90,14 +83,14 @@ const jsonLd = {
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
 
-  <body class="min-h-screen bg-background">
+  <body class="min-h-screen">
     <a
       href="#icerik"
       class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-foreground focus:shadow-soft"
     >
       İçeriğe geç
     </a>
-    <Header client:load pathname={pathname} logoSrc={logoImage.src} />
+    <Header pathname={pathname} />
     <div id="icerik">
       <slot />
     </div>
