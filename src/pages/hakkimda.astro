@@ -1,0 +1,14 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hakkimda from "@/views/Hakkimda";
+import { responsiveImage } from "@/lib/images";
+import portrait from "@/assets/dr-ibrahim-main-optimized.jpg";
+import groupPhoto from "@/assets/hakkimda-group-optimized.jpg";
+---
+
+<BaseLayout
+  title="Hakkımda | İbrahim Sarı, MD, PhD"
+  description="Psikoterapist İbrahim Sarı'nın eğitimi ve deneyimi: Lyon'da psikanaliz eğitimi, İntegratif Psikoterapi ve Masterson Yaklaşımı programları, Klinik Psikoloji yüksek lisansı, TLDP ve nörobilim doktorası."
+>
+  <Hakkimda portrait={await responsiveImage(portrait, [480, 720, 960])} groupPhoto={await responsiveImage(groupPhoto)} />
+</BaseLayout>

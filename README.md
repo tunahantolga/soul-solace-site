@@ -1,73 +1,49 @@
-# Welcome to your Lovable project
+# İntegratif Enstitü — İbrahim Sarı, MD, PhD
 
-## Project info
+Psikoterapist İbrahim Sarı ve İntegratif Enstitü Psikolojik Danışmanlık Merkezi web sitesi:
+<https://integratifenstitu.com>
 
-**URL**: https://lovable.dev/projects/e07893db-c46e-4f9b-abf2-0d7926757840
+## Teknoloji
 
-## How can I edit this code?
+- [Astro](https://astro.build) — her sayfa build sırasında statik HTML olarak üretilir
+- React — yalnızca etkileşimli parçalar (menü, galeriler) istemcide çalışır ("island")
+- Tailwind CSS + shadcn/ui bileşenleri
+- `astro:assets` ile otomatik WebP / çoklu boyut görsel optimizasyonu
+- `@astrojs/sitemap` ile otomatik site haritası
 
-There are several ways of editing your application.
+## Geliştirme
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/e07893db-c46e-4f9b-abf2-0d7926757840) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Node.js 22.22 veya üzeri gerekir.
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm ci
+npm run dev        # http://localhost:8080
+npm run lint       # ESLint
+npm run typecheck  # astro check (TypeScript + .astro dosyaları)
+npm run build      # dist/ klasörüne statik site
+npm run preview    # build çıktısını yerelde sun
 ```
 
-**Edit a file directly in GitHub**
+## Proje yapısı
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+src/
+  pages/        Astro sayfaları (URL = dosya adı); başlık, açıklama ve yapısal veri burada
+  layouts/      Ortak sayfa iskeleti: <head> SEO etiketleri, JSON-LD, header, footer
+  views/        Alt sayfaların React gövdeleri
+  components/   Ana sayfa bölümleri, Header ve Gallery (istemci adacıkları), ui/ bileşenleri
+  config/       Site geneli bilgiler (iletişim, sosyal medya, ünvan)
+  lib/          Yardımcılar (görsel optimizasyonu, tipler)
+  assets/       Optimize edilecek görseller
+public/         Olduğu gibi kopyalanan dosyalar (favicon, PDF, og-image, robots.txt)
+```
 
-**Use GitHub Codespaces**
+Yeni sayfa eklemek için `src/pages/` altına bir `.astro` dosyası oluşturun ve `BaseLayout`'a
+`title` ve `description` verin; site haritası otomatik güncellenir.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Yayına alma
 
-## What technologies are used for this project?
+`main` dalına her push'ta GitHub Actions lint, typecheck ve build çalıştırır ve siteyi GitHub
+Pages'e yayınlar. Pull request'lerde aynı kontroller çalışır, yayın yapılmaz.
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/e07893db-c46e-4f9b-abf2-0d7926757840) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Alternatif olarak Docker ile: `docker build -t integratif-site . && docker run -p 4173:4173 integratif-site`.

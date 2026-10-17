@@ -1,8 +1,12 @@
 import { BookOpenText, Languages, PencilLine, Quote } from "lucide-react";
 import { useMemo } from "react";
-import heroRoomImage from "@/assets/hero-chair-optimized.jpg";
+import type { ResponsiveImage } from "@/lib/types";
 
-const Hero = () => {
+interface HeroProps {
+  image: ResponsiveImage;
+}
+
+const Hero = ({ image }: HeroProps) => {
   const panels = useMemo(
     () => [
       {
@@ -35,7 +39,12 @@ const Hero = () => {
         {/* Photo background */}
         <div className="absolute inset-0">
           <img
-            src={heroRoomImage}
+            src={image.src}
+            srcSet={image.srcSet}
+            sizes="100vw"
+            width={image.width}
+            height={image.height}
+            fetchPriority="high"
             alt=""
             className="h-full w-full object-cover object-center"
             draggable={false}
@@ -60,7 +69,7 @@ const Hero = () => {
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed mb-0 max-w-2xl mx-auto">
-              MD, MSc
+              MD, PhD
             </p>
           </div>
         </div>

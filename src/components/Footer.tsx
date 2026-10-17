@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Calendar, GraduationCap, Video, ExternalLink } from "lucide-react";
 
 const Footer = () => {
@@ -11,7 +10,7 @@ const Footer = () => {
         <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <h3 className="text-xl font-semibold text-foreground">İbrahim Sarı</h3>
-            <p className="mt-1 text-sm text-muted-foreground">MD, MSc</p>
+            <p className="mt-1 text-sm text-muted-foreground">MD, PhD</p>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
               İntegratif psikoterapi yaklaşımıyla profesyonel ve güvenilir ruh sağlığı desteği sunuyoruz.
             </p>
@@ -55,15 +54,15 @@ const Footer = () => {
           <div className="lg:col-span-3">
             <h4 className="text-sm font-semibold tracking-wide text-foreground">Hızlı Erişim</h4>
             <nav className="mt-4 flex flex-col gap-3">
-              <Link to="/" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+              <a href="/" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                 Ana Sayfa
-              </Link>
-              <Link to="/hakkimda" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+              </a>
+              <a href="/hakkimda" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                 Hakkımda
-              </Link>
-              <Link to="/iletisim" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+              </a>
+              <a href="/iletisim" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                 İletişim
-              </Link>
+              </a>
             </nav>
           </div>
 
@@ -122,7 +121,7 @@ const Footer = () => {
 
         <div className="mt-10 border-t border-border pt-6">
           <p className="text-center text-xs text-muted-foreground md:text-left">
-            © {new Date().getFullYear()} İbrahim Sarı, MD, MSc. Tüm hakları saklıdır.
+            © {new Date().getFullYear()} İbrahim Sarı, MD, PhD. Tüm hakları saklıdır.
           </p>
         </div>
       </div>

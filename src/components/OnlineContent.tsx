@@ -1,34 +1,18 @@
-import { useState } from "react";
+import type { ReactNode } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Video, ExternalLink, Play, Users, ChevronLeft, ChevronRight } from "lucide-react";
-import youtubeBgImage from "@/assets/youtube-card-bg.jpg";
+import { GraduationCap, Video, ExternalLink, Play, Users } from "lucide-react";
+import type { ResponsiveImage } from "@/lib/types";
 
-const OnlineContent = () => {
+interface OnlineContentProps {
+  seminerGallery?: ReactNode;
+  youtubeBg: ResponsiveImage;
+}
+
+const OnlineContent = ({ seminerGallery, youtubeBg }: OnlineContentProps) => {
   const udemyUrl =
     "https://www.udemy.com/user/lale-anna-sari/?srsltid=AfmBOopBlAomDmAE8ZZ4MCbtRJKwWw9HqchsO5UtBGGv3qXBQl0lUC3V";
   const youtubeUrl = "https://www.youtube.com/@ibrahimsar-integratifpsiko9945";
-  const seminerPhotos = Object.entries(
-    import.meta.glob("/src/assets/pro-gelisim-album-*.jpg", {
-      eager: true,
-      import: "default",
-    })
-  )
-    .sort(([a], [b]) => a.localeCompare(b))
-    .filter(([path]) => !path.includes("pro-gelisim-album-01.jpg"))
-    .map(([, src], index) => ({
-      src: src as string,
-      alt: `İntegratif Enstitü seminer görseli ${index + 1}`,
-    }));
-  const [currentSeminerSlide, setCurrentSeminerSlide] = useState(0);
-
-  const prevSeminerSlide = () => {
-    setCurrentSeminerSlide((prev) => (prev - 1 + seminerPhotos.length) % seminerPhotos.length);
-  };
-
-  const nextSeminerSlide = () => {
-    setCurrentSeminerSlide((prev) => (prev + 1) % seminerPhotos.length);
-  };
 
   return (
     <section className="py-16 md:py-20 bg-gradient-to-b from-background to-secondary/30 relative overflow-hidden">
@@ -41,39 +25,7 @@ const OnlineContent = () => {
             <h3 className="text-2xl sm:text-3xl font-bold text-foreground">Seminerler</h3>
           </div>
 
-          <Card className="overflow-hidden border border-border shadow-soft bg-card">
-            <div className="relative">
-              <img
-                src={seminerPhotos[currentSeminerSlide]?.src}
-                alt={seminerPhotos[currentSeminerSlide]?.alt ?? "Seminer görseli"}
-                className="w-full h-[280px] sm:h-[360px] md:h-[420px] object-contain bg-white"
-                loading="lazy"
-                decoding="async"
-              />
-
-              <button
-                type="button"
-                onClick={prevSeminerSlide}
-                className="absolute left-4 sm:left-3 top-1/2 -translate-y-1/2 h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black/55 text-white flex items-center justify-center hover:bg-black/70 transition"
-                aria-label="Önceki seminer görseli"
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </button>
-
-              <button
-                type="button"
-                onClick={nextSeminerSlide}
-                className="absolute right-4 sm:right-3 top-1/2 -translate-y-1/2 h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-black/55 text-white flex items-center justify-center hover:bg-black/70 transition"
-                aria-label="Sonraki seminer görseli"
-              >
-                <ChevronRight className="h-5 w-5" />
-              </button>
-            </div>
-
-            <CardContent className="py-3 text-center text-sm text-muted-foreground">
-              {currentSeminerSlide + 1} / {seminerPhotos.length}
-            </CardContent>
-          </Card>
+          {seminerGallery}
         </div>
 
         <div className="text-center mb-12 md:mb-16">
@@ -235,7 +187,9 @@ const OnlineContent = () => {
             <CardContent className="p-0">
               <div className="aspect-video relative flex items-center justify-center overflow-hidden">
                 <img
-                  src={youtubeBgImage}
+                  src={youtubeBg.src}
+                  srcSet={youtubeBg.srcSet}
+                  sizes="(min-width: 896px) 896px, 100vw"
                   alt=""
                   className="absolute inset-0 h-full w-full object-cover"
                   loading="lazy"

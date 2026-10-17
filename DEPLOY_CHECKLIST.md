@@ -5,7 +5,7 @@
 - `npm run lint` (0 errors)
 - `npm run typecheck`
 - `npm run build`
-- `npm run dev` and test key pages:
+- `npm run preview` and test key pages (and a non-existent URL for the 404 page):
   - `/`
   - `/hakkimda`
   - `/iletisim`
@@ -28,13 +28,13 @@
   - OpenGraph and Twitter tags
   - `lang="tr"`
 - Verify favicon appears in browser tab
+- Each page has its own title/description and a canonical URL
+- Share a link in WhatsApp and check the `og-image.jpg` preview
+- Validate JSON-LD with https://search.google.com/test/rich-results
 
 ## 4) Performance QA
-- Confirm optimized assets are loaded from:
-  - `src/assets/hero-chair-optimized.jpg`
-  - `src/assets/dr-ibrahim-main-optimized.jpg`
-  - `src/assets/hakkimda-group-optimized.jpg`
-  - `src/assets/youtube-card-bg.jpg`
+- Confirm images are served as WebP from `/_astro/` with `srcset`
+- Confirm only the header and galleries load JavaScript (`/_astro/*.js`)
 - Run Lighthouse (mobile + desktop) and target:
   - Performance >= 85
   - Accessibility >= 90

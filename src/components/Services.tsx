@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Brain, Users, Heart } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -45,7 +44,7 @@ const Services = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {services.map((service, index) => (
-            <Link key={index} to={service.link} className="block">
+            <a key={index} href={service.link} className="block">
               <Card 
                 className="group border border-border hover:border-primary/50 transition-all duration-500 premium-card relative overflow-hidden h-full"
                 style={{animationDelay: `${index * 0.1}s`}}
@@ -78,7 +77,7 @@ const Services = () => {
                   </div>
                 </CardContent>
               </Card>
-            </Link>
+            </a>
           ))}
         </div>
       </div>

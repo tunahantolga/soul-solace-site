@@ -1,0 +1,106 @@
+---
+import { getImage } from "astro:assets";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { SITE } from "@/config/site";
+import logo from "@/assets/integratif-logo-transparent.png";
+import "@/index.css";
+
+interface Props {
+  title: string;
+  description: string;
+  /** Extra JSON-LD nodes for this page, merged into the site graph. */
+  schema?: Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const { title, description, schema = [], noindex = false } = Astro.props;
+
+const pathname = Astro.url.pathname.replace(/\.html$/, "").replace(/\/index$/, "/") || "/";
+const canonical = new URL(pathname, SITE.url).href;
+const ogImage = new URL("/og-image.jpg", SITE.url).href;
+
+// The header logo renders at 36px tall; ship a 2x WebP instead of the 120 KB PNG.
+const logoImage = await getImage({
+  src: logo,
+  height: 72,
+  width: Math.round((72 * logo.width) / logo.height),
+  format: "webp",
+});
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalBusiness",
+      "@id": `${SITE.url}/#business`,
+      name: SITE.name,
+      url: SITE.url,
+      email: SITE.email,
+      telephone: SITE.phone,
+      image: ogImage,
+      address: { "@type": "PostalAddress", addressLocality: SITE.city, addressCountry: SITE.country },
+      founder: { "@id": `${SITE.url}/#person` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE.url}/#person`,
+      name: SITE.person,
+      honorificSuffix: SITE.credentials,
+      jobTitle: "Psikoterapist",
+      url: `${SITE.url}/hakkimda`,
+      worksFor: { "@id": `${SITE.url}/#business` },
+      sameAs: SITE.sameAs,
+    },
+    ...schema,
+  ],
+};
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={`${SITE.person}, ${SITE.credentials}`} />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
+    <meta name="theme-color" content="#F6F3EE" />
+    {!noindex && <link rel="canonical" href={canonical} />}
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+
+  <body class="min-h-screen bg-background">
+    <a
+      href="#icerik"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-foreground focus:shadow-soft"
+    >
+      İçeriğe geç
+    </a>
+    <Header client:load pathname={pathname} logoSrc={logoImage.src} />
+    <div id="icerik">
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>
