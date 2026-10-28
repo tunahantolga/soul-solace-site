@@ -56,7 +56,7 @@ export const therapies: Therapy[] = [
     facts: [
       {
         title: "Seans süresi",
-        text: "Her seans 50 dakika sürer ve genellikle haftada bir kez yapılır. TLDP yaklaşımında toplam 16-20 seans önerilir.",
+        text: "Her seans 45 dakika sürer ve genellikle haftada bir kez yapılır. TLDP yaklaşımında toplam 16-20 seans önerilir.",
       },
       {
         title: "Gizlilik",
